@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: "AdmDialog",
+  name: "VarDialog",
   props: {
     visible: {
       type: Boolean,

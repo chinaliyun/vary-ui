@@ -20,7 +20,7 @@ import { validateMobile } from "../../../utils"; // 验证码倒计时的定时�
 import Button from "../../Button";
 let timer = null;
 export default {
-  name: "AdmSmscode",
+  name: "VarSmscode",
   components: {
     Button,
   },

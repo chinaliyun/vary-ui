@@ -1,12 +1,12 @@
 <template>
   <div class="v_tabs">
-    <adm-scene
+    <var-scene
       flex
       class="tab_bar"
       :class="{ border, background }"
       :style="realStyle"
     >
-      <adm-scene
+      <var-scene
         v-for="row in data"
         :key="'tabbar_' + row.name"
         flex
@@ -16,11 +16,11 @@
         :style="labelStyle"
         @click="selectTab(row.name)"
       >
-        <adm-scene flex middle center class="tab_text">
+        <var-scene flex middle center class="tab_text">
           {{ row.label }}
-        </adm-scene>
-      </adm-scene>
-    </adm-scene>
+        </var-scene>
+      </var-scene>
+    </var-scene>
     <div v-for="row in data" :key="'tab_content_' + row.name">
       <slot v-if="activeTabName == row.name" :name="row.name" />
     </div>
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: "AdmTabs",
+  name: "VarTabs",
   props: {
     data: {
       type: Array,

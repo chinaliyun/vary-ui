@@ -7,12 +7,12 @@
       <div class="v_upload_progress" :class="{ show: progress }" @click.stop="">
         <div v-for="item in selectedFiles" :key="item.fileName">
           <div class="v_upload_progress_item">
-            <adm-scene flex middle class="file_info">
-              <adm-scene grow class="file_name">
+            <var-scene flex middle class="file_info">
+              <var-scene grow class="file_name">
                 {{ item.file.name }}
-              </adm-scene>
+              </var-scene>
 
-              <adm-scene
+              <var-scene
                 fixed
                 flex
                 middle
@@ -26,8 +26,8 @@
                   {{ Math.floor(item.rate * 100) }}%
                 </div>
                 <IconSuccess class="result_success" />
-              </adm-scene>
-            </adm-scene>
+              </var-scene>
+            </var-scene>
             <div class="progress_bg">
               <div
                 class="progress_bar"
@@ -75,7 +75,7 @@ function upload(file) {
 }
 import IconSuccess from "./icons/success.vue";
 export default {
-  name: "AdmUpload",
+  name: "VarUpload",
   components: {
     IconSuccess,
   },

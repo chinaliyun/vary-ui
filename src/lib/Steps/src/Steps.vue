@@ -1,6 +1,6 @@
 <template>
-  <adm-scene class="v_steps" flex middle :style="{ background }">
-    <adm-scene
+  <var-scene class="v_steps" flex middle :style="{ background }">
+    <var-scene
       v-for="(item, index) in data"
       :key="item"
       class="step_item"
@@ -9,14 +9,14 @@
     >
       <div class="step">
         <div class="step_line"></div>
-        <adm-scene
+        <var-scene
           class="step_text_bg"
           flex
           middle
           center
           :style="{ background }"
         >
-          <adm-scene
+          <var-scene
             class="step_text"
             flex
             middle
@@ -24,18 +24,18 @@
             @click="selectStep(index)"
           >
             {{ index + 1 }}
-          </adm-scene>
-        </adm-scene>
+          </var-scene>
+        </var-scene>
       </div>
-      <adm-scene class="step_title" :pt="8" @click="selectStep(index)">
+      <var-scene class="step_title" :pt="8" @click="selectStep(index)">
         {{ item }}
-      </adm-scene>
-    </adm-scene>
-  </adm-scene>
+      </var-scene>
+    </var-scene>
+  </var-scene>
 </template>
 <script>
 export default {
-  name: "AdmSteps",
+  name: "VarSteps",
   props: {
     data: {
       type: Array,

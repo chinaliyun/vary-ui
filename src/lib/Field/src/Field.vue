@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "AdmField",
+  name: "VarField",
   model: {
     prop: "value",
     event: "input",

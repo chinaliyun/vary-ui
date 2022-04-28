@@ -1,9 +1,9 @@
 import Vue from "vue";
 
 import App from "./App";
-import MasterUI from "../dist/master-ui";
-import "../dist/master-ui.css";
-Vue.use(MasterUI);
+import VaryUI from "../dist/vary-ui";
+import "../dist/vary-ui.css";
+Vue.use(VaryUI);
 
 import "@/cover.scss";
 

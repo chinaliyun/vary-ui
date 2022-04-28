@@ -11,7 +11,7 @@
 <script>
 import Mixin from "../../Mixin";
 export default {
-  name: "AdmScene",
+  name: "VarScene",
   mixins: [Mixin],
   props: {
     flex: Boolean, // display:flex

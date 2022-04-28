@@ -65,7 +65,7 @@ import IconClose from "./icons/close.vue";
 const imgError = require("./images/img_error.svg");
 
 export default {
-  name: "AdmPreview",
+  name: "VarPreview",
   components: {
     IconArrow,
     IconClose,

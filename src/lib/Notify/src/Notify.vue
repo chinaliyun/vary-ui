@@ -28,7 +28,7 @@
 <script>
 import IconClose from "./icons/close.vue";
 export default {
-  name: "AdmNotify",
+  name: "VarNotify",
   components: {
     IconClose,
   },

@@ -44,7 +44,7 @@
 </template>
 <script>
 export default {
-  name: "AdmTable",
+  name: "VarTable",
   props: {
     data: {
       type: Array,

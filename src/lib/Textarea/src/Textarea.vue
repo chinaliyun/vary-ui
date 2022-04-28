@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "AdmTextarea",
+  name: "VarTextarea",
   model: {
     prop: "value",
     event: "change",

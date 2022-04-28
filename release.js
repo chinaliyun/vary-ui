@@ -5,21 +5,23 @@ const ProgressBar = require("progress");
 require("colors");
 
 function isFun(fn) {
-  return Object.prototype.toString.call(fn).toLowerCase().slice(-9, -1) === 'function'
+  return (
+    Object.prototype.toString.call(fn).toLowerCase().slice(-9, -1) ===
+    "function"
+  );
 }
 
-function progressFn(desc){
-  console.log(desc)
-
+function progressFn(desc) {
+  console.log(desc);
 }
-function execPromise(command, progress=progressFn) {
+function execPromise(command, progress = progressFn) {
   if (!command) {
     console.log(`Error: command param can't be empty\n`.red);
   }
   if (progress && !isFun(progress)) {
-    console.log('Error: progress param was not a function\n'.red);
+    console.log("Error: progress param was not a function\n".red);
   }
-  console.log('\n' + command);
+  console.log("\n" + command);
   return new Promise((resolve, reject) => {
     const sh = exec(command);
     let resolveData = "";
@@ -27,9 +29,9 @@ function execPromise(command, progress=progressFn) {
       progress(desc.toString());
       resolveData += desc;
     });
-    sh.stderr.on('data', (desc) => {
+    sh.stderr.on("data", (desc) => {
       progress(desc.toString());
-      resolveData += desc
+      resolveData += desc;
     });
     sh.on("exit", () => {
       resolve(resolveData.toString());
@@ -46,24 +48,25 @@ const branch = execSync(`git branch -a`).toString().split("\n");
 const branchName = branch.find((item) => item.startsWith("*")).split(" ")[1];
 console.log(`当前所在分支:`, `${branchName}`.green);
 
-
 let newVersion = "";
-console.log('拉取当前分支最新代码:');
-execPromise(`git pull origin ${branchName}`, res => {
+console.log("拉取当前分支最新代码:");
+execPromise(`git pull origin ${branchName}`, (res) => {
   console.log(res);
-}).then(res => {
-  if (res.includes('Error')) {
-    console.log('git pull failed, 可能存在代码冲突, 请解决冲突后重新发布'.red);
-    process.exit()
-  }
-
-  updateVersion();
-}).catch(e => {
-  console.log('error', e);
-  process.exit()
 })
+  .then((res) => {
+    if (res.includes("Error")) {
+      console.log(
+        "git pull failed, 可能存在代码冲突, 请解决冲突后重新发布".red
+      );
+      process.exit();
+    }
 
-
+    updateVersion();
+  })
+  .catch((e) => {
+    console.log("error", e);
+    process.exit();
+  });
 
 async function updateVersion() {
   const pkgFile = path.resolve(__dirname, "./package.json");
@@ -83,10 +86,12 @@ async function updateVersion() {
   newVersion = version = generateVersion(version);
   console.log(`即将发布版本为 ${version}`.green);
 
-  const confirmRelease = await question(`\n确认发布版本<${version}>吗(按Enter键确认发布)?`)
-  if (confirmRelease !== '') {
+  const confirmRelease = await question(
+    `\n确认发布版本<${version}>吗(按Enter键确认发布)?`
+  );
+  if (confirmRelease !== "") {
     console.log("终止发布".white);
-    process.exit()
+    process.exit();
   }
 
   console.log(`编译npm包`);
@@ -101,25 +106,26 @@ async function updateVersion() {
     }
   }, 500);
 
-  execPromise('yarn deploy', _ => { }).then(deploy => {
-    bar.tick(barTotal - bar.curr);
-    console.log('\n');
-    console.log(deploy.toString());
+  execPromise("yarn deploy", (_) => {})
+    .then((deploy) => {
+      bar.tick(barTotal - bar.curr);
+      console.log("\n");
+      console.log(deploy.toString());
 
-    writeFileSync(pkgFile, pkg.replace(versionReg, `"$1${version}"`), {
-      encoding: "utf-8",
+      writeFileSync(pkgFile, pkg.replace(versionReg, `"$1${version}"`), {
+        encoding: "utf-8",
+      });
+      console.log(`推送Npm包：`.green);
+      const publish = execSync(`npm publish --access=public`);
+      const branchName = publish.toString().replace(/\n/, "");
+      console.log(branchName);
+      console.log(`\nSuccess: <${version}>版本发布成功\n`.green);
+      commit();
+    })
+    .catch((e) => {
+      console.log(e);
+      process.exit();
     });
-    console.log(`推送Npm包：`.green);
-    const publish = execSync(`npm publish`);
-    const branchName = publish.toString().replace(/\n/, "");
-    console.log(branchName);
-    console.log(`\nSuccess: <${version}>版本发布成功\n`.green);
-    commit();
-  }).catch(e => {
-    console.log(e);
-    process.exit()
-  })
-
 }
 
 function question(q) {
@@ -129,27 +135,27 @@ function question(q) {
       input: process.stdin,
       output: process.stdout,
     });
-    readline.on('line', desc => {
-      readline.close()
+    readline.on("line", (desc) => {
+      readline.close();
       // console.log(desc);
-      resolve(desc)
-    })
-  })
+      resolve(desc);
+    });
+  });
 }
 
 async function commit() {
-
-  console.log('Npm推送完成'.green);
+  console.log("Npm推送完成".green);
 
   const status = execSync(`git status .`);
   console.log(status.toString());
 
-  let commitDesc = await question(`请输入commit描述内容, 无描述内容将退出commit`);
+  let commitDesc = await question(
+    `请输入commit描述内容, 无描述内容将退出commit`
+  );
 
-
-  if (commitDesc === '') {
-    console.log('release完成, 请手动提交代码'.green);
-    process.exit()
+  if (commitDesc === "") {
+    console.log("release完成, 请手动提交代码".green);
+    process.exit();
   }
 
   try {
@@ -170,7 +176,6 @@ async function commit() {
     console.log(e);
     process.exit(1);
   }
-
 }
 
 function generateVersion(str) {

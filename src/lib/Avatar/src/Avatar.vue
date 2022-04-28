@@ -14,7 +14,7 @@
 <script>
 let loadStatus = 1;
 export default {
-  name: "AdmAvatar",
+  name: "VarAvatar",
   props: {
     src: {
       type: String,

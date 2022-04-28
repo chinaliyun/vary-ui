@@ -33,7 +33,7 @@
 <script>
 import IconClose from "./icons/close.vue";
 export default {
-  name: "AdmAlert",
+  name: "VarAlert",
   components: {
     IconClose,
   },

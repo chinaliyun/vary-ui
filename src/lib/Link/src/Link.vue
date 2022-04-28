@@ -14,7 +14,7 @@
 <script>
 import { debounce } from "../../../utils";
 export default {
-  name: "AdmLink",
+  name: "VarLink",
   props: {
     wait: {
       type: [String, Number, Boolean],

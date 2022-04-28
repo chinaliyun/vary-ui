@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "AdmCard",
+  name: "VarCard",
   props: {
     title: {
       type: String,

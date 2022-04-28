@@ -20,7 +20,7 @@
 <script>
 import { isBoolean } from "@/utils";
 export default {
-  name: "AdmRadio",
+  name: "VarRadio",
   model: {
     prop: "name",
     event: "change",

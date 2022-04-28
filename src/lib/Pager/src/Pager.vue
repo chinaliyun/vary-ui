@@ -35,33 +35,33 @@
       </div>
       <div v-if="splitRight" class="next_page" @click="toNext"></div>
     </div>
-    <adm-scene v-if="sizes.length" :pl="12">
-      <adm-select
+    <var-scene v-if="sizes.length" :pl="12">
+      <var-select
         :value="pageSize"
         :data="sizes"
         :w="100"
         :clearable="false"
         @change="(v) => $emit('pageSizeChanged', Number(v))"
-      ></adm-select>
-    </adm-scene>
-    <adm-scene v-if="jumper" flex middle :pl="12">
+      ></var-select>
+    </var-scene>
+    <var-scene v-if="jumper" flex middle :pl="12">
       前往
-      <adm-scene :pl="4" :pr="4">
-        <adm-input
+      <var-scene :pl="4" :pr="4">
+        <var-input
           v-model="jumpPageNo"
           format="6"
           :w="72"
           @blur="changePage"
           @enter="changePage"
-        ></adm-input>
-      </adm-scene>
+        ></var-input>
+      </var-scene>
       页
-    </adm-scene>
+    </var-scene>
   </div>
 </template>
 <script>
 export default {
-  name: "AdmPager",
+  name: "VarPager",
   props: {
     pageSize: {
       type: Number,

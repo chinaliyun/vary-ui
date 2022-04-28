@@ -57,7 +57,7 @@
 import IconClear from "./icons/clear";
 import IconArrow from "./icons/arrow.vue";
 export default {
-  name: "AdmSelect",
+  name: "VarSelect",
   model: {
     prop: "value",
     event: "change",

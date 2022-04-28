@@ -1,12 +1,12 @@
 <template>
-  <adm-card title="文件上传">
-    <adm-upload
+  <var-card title="文件上传">
+    <var-upload
       :disabled="uploadDisabled"
       :multiple="2"
       progress
       @error="(v) => $message.error(v.msg)"
-    ></adm-upload>
-  </adm-card>
+    ></var-upload>
+  </var-card>
 </template>
 <script>
 export default {

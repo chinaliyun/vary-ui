@@ -70,7 +70,7 @@
 import { debounce } from "../../../utils";
 import IconClear from "./icons/clear";
 export default {
-  name: "AdmInput",
+  name: "VarInput",
   components: {
     IconClear,
   },

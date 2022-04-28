@@ -14,7 +14,7 @@
 import { debounce } from "../../../utils";
 import Mixin from "../../Mixin";
 export default {
-  name: "AdmButton",
+  name: "VarButton",
   mixins: [Mixin],
   props: {
     wait: {

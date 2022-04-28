@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: "AdmMessage",
+  name: "VarMessage",
   data() {
     return {
       msg: "",

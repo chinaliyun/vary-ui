@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    "value-ui": ["./src/index.js"],
+    "vary-ui": ["./src/index.js"],
   },
   output: {
     publicPath: "./",

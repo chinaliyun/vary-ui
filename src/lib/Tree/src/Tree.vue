@@ -10,7 +10,7 @@
 // import TreeItem from './TreeItem';
 
 export default {
-  name: "AdmTree",
+  name: "VarTree",
   components: {
     // TreeItem,
   },

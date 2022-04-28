@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: "AdmTreeItem",
+  name: "VarTreeItem",
   props: {
     data: {
       type: Object,

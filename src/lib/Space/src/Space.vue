@@ -5,7 +5,7 @@
 <script>
 import Mixin from "../../Mixin";
 export default {
-  name: "AdmSpace",
+  name: "VarSpace",
   mixins: [Mixin],
 };
 </script>

@@ -1,9 +1,9 @@
 {
-  "name": "value-ui",
-  "version": "1.0.2",
+  "name": "vary-ui",
+  "version": "1.0.4",
   "description": "A UI Conponent Library based Vue2, Faster, Lighter, Simpler",
-  "homepage": "https://github.com/chinaliyun/value-ui.git",
-  "main": "dist/value-ui.js",
+  "homepage": "https://github.com/chinaliyun/vary-ui.git",
+  "main": "dist/vary-ui.js",
   "scripts": {
     "dev": "node dev.js",
     "server": "webpack-cli serve --config config/webpack.demo.config.js",
@@ -19,6 +19,9 @@
   ],
   "author": "liyun",
   "license": "ISC",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "files": [
     "dist",
     "package.json",

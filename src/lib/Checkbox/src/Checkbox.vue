@@ -22,7 +22,7 @@
 import { isBoolean } from "../../../utils";
 let isEmitEvent = false;
 export default {
-  name: "AdmCheckbox",
+  name: "VarCheckbox",
   model: {
     prop: "value",
     event: "change",
