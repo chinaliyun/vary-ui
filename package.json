@@ -1,0 +1,53 @@
+{
+  "name": "value-ui",
+  "version": "1.0.2",
+  "description": "A UI Conponent Library based Vue2, Faster, Lighter, Simpler",
+  "homepage": "https://github.com/chinaliyun/value-ui.git",
+  "main": "dist/value-ui.js",
+  "scripts": {
+    "dev": "node dev.js",
+    "server": "webpack-cli serve --config config/webpack.demo.config.js",
+    "build": "webpack-cli --config config/webpack.config.js",
+    "deploy": "webpack-cli --config config/webpack.deploy.config.js",
+    "release": "node release.js"
+  },
+  "keywords": [
+    "vue",
+    "component",
+    "ui",
+    "vue2"
+  ],
+  "author": "liyun",
+  "license": "ISC",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "peerDependencies": {},
+  "dependencies": {},
+  "devDependencies": {
+    "ali-oss": "^6.16.0",
+    "axios": "^0.26.0",
+    "browser-image-compression": "^1.0.17",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "colors": "^1.4.0",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.5.2",
+    "progress": "^2.0.3",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
+    "sass-resources-loader": "^2.2.4",
+    "vue": "^2.6.14",
+    "vue-loader": "^15.9.8",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.3",
+    "moment": "^2.29.1",
+    "nanoid": "^3.3.1"
+  }
+}

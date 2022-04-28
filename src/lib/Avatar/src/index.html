@@ -1,0 +1,17 @@
+<img src="http://192.168.20.27:8210/fewfew.png" alt="" onerror="error" />
+<script>
+  function error() {
+    console.log('err');
+  }
+  window.onload = init;
+  function init() {
+    const img = new Image();
+    img.onload = function() {
+      console.log('loaded');
+    };
+    img.onerror = function() {
+      console.log('error');
+    };
+    img.src = 'http://192.168.20.27:8210/fewfew.png';
+  }
+</script>
