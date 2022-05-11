@@ -114,7 +114,10 @@ export default {
   &.border {
     border-left: 1px solid $border-color2;
     border-right: 1px solid $border-color2;
-    .col + .col {
+    .v_table_col {
+      border-top: 1px solid $border-color2;
+    }
+    .v_table_col + .v_table_col {
       border-left: 1px solid $border-color2;
     }
   }
@@ -139,10 +142,6 @@ export default {
     padding: 0 10px;
     display: table-cell;
     word-break: break-all;
-    border-top: 1px solid $border-color2;
-    & + .v_table_col {
-      border-left: 1px solid $border-color2;
-    }
     &.fixed {
       flex-shrink: 0;
       flex-grow: 0;
