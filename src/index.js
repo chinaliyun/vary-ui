@@ -18,6 +18,7 @@ import Select from "./lib/Select";
 import SmsCode from "./lib/SmsCode";
 import Space from "./lib/Space";
 import Steps from "./lib/Steps";
+import Switch from "./lib/Switch";
 import Table from "./lib/Table";
 import Tabs from "./lib/Tabs";
 import Textarea from "./lib/Textarea";
@@ -45,6 +46,7 @@ let components = [
   SmsCode,
   Space,
   Steps,
+  Switch,
   Table,
   Tabs,
   Textarea,

@@ -585,6 +585,7 @@ export default {
         height: 36px;
         line-height: 36px;
         padding: 0 10px;
+        white-space: nowrap;
         &:hover {
           background-color: rgba(214, 214, 252, 0.144);
         }

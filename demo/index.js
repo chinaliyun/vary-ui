@@ -1,8 +1,7 @@
 import Vue from "vue";
 
 import App from "./App";
-import VaryUI from "../dist/vary-ui";
-import "../dist/vary-ui.css";
+import VaryUI from "../src/index";
 Vue.use(VaryUI);
 
 import "@/cover.scss";

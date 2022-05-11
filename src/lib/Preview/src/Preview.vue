@@ -97,7 +97,7 @@ export default {
         if (item.includes("base64")) {
           return item;
         }
-        return /\.(jpg|jpeg|png|gif)/.test(item);
+        return /\.(jpg|jpeg|png|gif)/i.test(item);
       });
       this.thumbs = this.urls.map((item) => {
         {

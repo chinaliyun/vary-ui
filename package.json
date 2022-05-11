@@ -1,9 +1,9 @@
 {
   "name": "vary-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A UI Conponent Library based Vue2, Faster, Lighter, Simpler",
   "homepage": "https://github.com/chinaliyun/vary-ui.git",
-  "main": "dist/vary-ui.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "node dev.js",
     "server": "webpack-cli serve --config config/webpack.demo.config.js",
@@ -23,6 +23,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "files": [
+    "src",
     "dist",
     "package.json",
     "README.md"
