@@ -15,7 +15,6 @@ import Preview from "./lib/Preview";
 import Radio from "./lib/Radio";
 import Scene from "./lib/Scene";
 import Select from "./lib/Select";
-import SmsCode from "./lib/SmsCode";
 import Space from "./lib/Space";
 import Steps from "./lib/Steps";
 import Switch from "./lib/Switch";
@@ -43,7 +42,6 @@ let components = [
   Radio,
   Scene,
   Select,
-  SmsCode,
   Space,
   Steps,
   Switch,
@@ -81,7 +79,6 @@ export {
   Radio,
   Scene,
   Select,
-  SmsCode,
   Space,
   Steps,
   Table,

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { isBoolean } from "@/utils";
+import { isBoolean } from "../../../utils";
 export default {
   name: "VarRadio",
   model: {
