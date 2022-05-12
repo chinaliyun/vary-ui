@@ -21,7 +21,7 @@ module.exports = {
       {
         text: "组件",
         link: "/components/scene",
-      }
+      },
     ],
     sidebar: {
       "/guide/": [
@@ -35,7 +35,7 @@ module.exports = {
         {
           title: "组件",
           collapsable: false,
-          children: ["avatar", "button", "scene", "preview"],
+          children: ["avatar", "button", "card", "scene", "preview"],
         },
       ],
       "/options/": [

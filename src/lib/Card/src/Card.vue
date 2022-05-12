@@ -1,5 +1,5 @@
 <template>
-  <div class="v_card">
+  <div class="v_card" :class="{ shadow }">
     <div v-if="title !== 'Title'" class="v_card_header">
       <div class="v_card_title">{{ title }}</div>
       <div class="v_card_title_slot">
@@ -20,6 +20,7 @@ export default {
       type: String,
       default: "Title",
     },
+    shadow: Boolean,
   },
 };
 </script>
@@ -29,6 +30,9 @@ export default {
   // width: 100%;
   border-radius: 5px;
   background-color: white;
+  &.shadow {
+    box-shadow: 0 1px 3px rgb(216, 216, 216);
+  }
   > .v_card_header {
     height: 60px;
     display: flex;
