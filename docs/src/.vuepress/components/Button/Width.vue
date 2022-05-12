@@ -1,11 +1,11 @@
 <template>
   <var-scene flex middle>
-    <var-button>普通按钮</var-button>
+    <var-button w="200">普通按钮</var-button>
     <var-space w="20"></var-space>
-    <var-button primary width="100">primary 普通按钮</var-button>
+    <var-button primary w="200">primary 普通按钮</var-button>
     <var-space w="20"></var-space>
-    <var-button warning width="120">warning 普通按钮</var-button>
+    <var-button warning w="220">warning 普通按钮</var-button>
     <var-space w="20"></var-space>
-    <var-button error width="140">error 普通按钮</var-button>
+    <var-button error w="240">error 普通按钮</var-button>
   </var-scene>
 </template>

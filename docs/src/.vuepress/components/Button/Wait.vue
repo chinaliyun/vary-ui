@@ -1,6 +1,8 @@
 <template>
   <var-scene flex middle>
-    <var-button @click="log"> 点击后请在打开控制台查看防抖效果 </var-button>
+    <var-button auto @click="log">
+      点击后请在打开控制台查看防抖效果
+    </var-button>
   </var-scene>
 </template>
 <script>

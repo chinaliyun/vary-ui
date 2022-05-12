@@ -20,7 +20,7 @@ pageClass: custom-page-class
 
 ## 设置按钮宽度
 
-`width`可以直接给按钮设置宽度, 它的值可以是任何有效的 css 单位
+按钮默认的宽度, 采用的是`inline-block`, 但是可以通过`width`属性直接给按钮设置宽度, 它的值可以是任何有效的 css 单位
 
 <Button-Width/>
 

@@ -1,12 +1,14 @@
 <template>
   <button
     class="v_button"
-    :class="{ primary, warning, error, success, border, disabled, auto }"
+    :class="{ primary, warning, error, success, border, disabled, block }"
     :style="bounding"
     @click.stop="clickTrigger"
   >
-    <div v-if="prefixIcon" class="prefix_icon" :class="[prefixIcon]"></div>
-    <slot />
+    <var-scene flex center middle>
+      <div v-if="prefixIcon" class="prefix_icon" :class="[prefixIcon]"></div>
+      <slot />
+    </var-scene>
   </button>
 </template>
 
@@ -31,10 +33,6 @@ export default {
     success: Boolean,
     border: Boolean,
     disabled: Boolean,
-    auto: {
-      type: Boolean,
-      default: false,
-    },
   },
 
   data() {
@@ -88,21 +86,17 @@ export default {
 
 <style lang="scss" >
 .v_button {
-  display: block;
-  min-width: 80px;
-  width: 100%;
+  min-width: 50px;
   border: 1px solid transparent;
   border-radius: 4px;
   height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   transition: background 0.1s linear;
   outline: none;
   font-size: 14px;
   background-color: rgb(243, 243, 243);
   color: #333;
+  flex-shrink: 0;
   &:hover {
     background-color: lighten($border-color, 4%);
   }
@@ -173,9 +167,6 @@ export default {
     &:hover {
       background-color: $border-color2;
     }
-  }
-  &.auto {
-    width: auto;
   }
 }
 </style>

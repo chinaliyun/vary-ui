@@ -28,12 +28,9 @@
     <var-card v-loading="loadingStatus">
       <div>loading指令</div>
       <br />
-      <var-scene flex>
-        <var-button primary w="100" @click="showLoading()">
-          打开loading
-        </var-button>
-        <var-space w="10"></var-space>
-      </var-scene>
+      <var-button primary @click="showLoading()" w="100">
+        打开loading
+      </var-button>
     </var-card>
     <br />
     <var-card title="按钮">
