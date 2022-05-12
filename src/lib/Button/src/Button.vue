@@ -6,7 +6,7 @@
     @click.stop="clickTrigger"
   >
     <var-scene flex center middle>
-      <div v-if="prefixIcon" class="prefix_icon" :class="[prefixIcon]"></div>
+      <slot name="prefix" />
       <slot />
     </var-scene>
   </button>
