@@ -19,6 +19,6 @@
     "vuepress": "^1.9.5"
   },
   "dependencies": {
-    "vary-ui": "^1.0.9"
+    "vary-ui": "^1.0.10"
   }
 }

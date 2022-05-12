@@ -1,7 +1,7 @@
 <template>
   <button
     class="v_button"
-    :class="{ primary, warning, error, success, border, disabled, block }"
+    :class="{ primary, warning, error, success, border, disabled }"
     :style="bounding"
     @click.stop="clickTrigger"
   >
