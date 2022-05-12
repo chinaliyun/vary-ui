@@ -21,11 +21,7 @@ module.exports = {
       {
         text: "组件",
         link: "/components/scene",
-      },
-      {
-        text: "选项",
-        link: "/options/",
-      },
+      }
     ],
     sidebar: {
       "/guide/": [
