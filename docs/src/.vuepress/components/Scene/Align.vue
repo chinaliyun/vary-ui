@@ -19,6 +19,11 @@
     </var-scene>
   </div>
 </template>
+<script>
+export default {
+  name: "SceneAlign",
+};
+</script>
 <style lang="scss" scoped>
 .line {
   background-color: rgb(240, 240, 240);

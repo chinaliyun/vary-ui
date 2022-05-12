@@ -20,11 +20,13 @@ pageClass: custom-page-class
 
 ## 设置按钮宽度
 
-按钮默认的宽度, 采用的是`inline-block`, 但是可以通过`width`属性直接给按钮设置宽度, 它的值可以是任何有效的 css 单位
+按钮默认的宽度是被内容撑开的, 可以通过`width`属性直接给按钮设置宽度, 它的值可以是任何有效的 css 单位
 
 <Button-Width/>
 
 <<< ./src/.vuepress/components/Button/Width.vue
+
+如果实在希望把按钮设置为`块元素`,可以通过`:style="display:'block'"`或者通过 SFC 来实现
 
 ## 添加防抖功能
 
@@ -34,11 +36,39 @@ pageClass: custom-page-class
 
 <<< ./src/.vuepress/components/Button/Wait.vue
 
+## 禁用状态
+
+通过`disabled`属性设置按钮的禁用状态
+
+<Button-Disabled/>
+
+<<< ./src/.vuepress/components/Button/Disabled.vue
+
+## 前置插槽
+
+在某些状态下, 可能需要为`button`添加前置的 icon, 所以我们提供了`prefix`插槽
+
 ## props
 
-| prop    | 默认值 | 说明                                                                          |
-| ------- | ------ | ----------------------------------------------------------------------------- |
-| src     | null   | 头像地址                                                                      |
-| default | null   | 默认头像地址, 如果 src 加载失败, 且 default 有值的情况下, 会加载 default 头像 |
-| size    | 80px   | 定义头像的尺寸,                                                               |
-| alt     | null   | 同 `img`元素的`alt`属性                                                       |
+| name     | 默认值 | 说明            |
+| -------- | ------ | --------------- |
+| primary  | false  | 主按钮风格      |
+| warning  | false  | 警告风格按钮    |
+| error    | false  | 错误风格的按钮, |
+| success  | false  | 成功风格的按钮  |
+| border   | false  | 带边框的按钮    |
+| disabled | false  | 设置禁用状态    |
+| wait     | 800    | 防抖间隔时间    |
+
+## slots
+
+| name    | 说明         |
+| ------- | ------------ |
+| default | 默认插槽     |
+| prefix  | 按钮前缀插槽 |
+
+## events
+
+| name  | 说明     |
+| ----- | -------- |
+| click | 点击事件 |

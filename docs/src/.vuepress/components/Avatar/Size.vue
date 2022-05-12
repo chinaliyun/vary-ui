@@ -7,6 +7,7 @@
 </template>
 <script>
 export default {
+  name: "AvatarSize",
   data() {
     return {
       src: require("./images/1.jpg"),

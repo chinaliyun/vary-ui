@@ -15,6 +15,11 @@
     <var-scene class="line" pt="20" pb="20">上下两侧内边距20px</var-scene>
   </div>
 </template>
+<script>
+export default {
+  name: "ScenePadding",
+};
+</script>
 <style lang="scss" scoped>
 .line {
   display: inline-block;

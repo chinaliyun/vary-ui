@@ -13,6 +13,11 @@
     <var-scene h="10vh" class="line">设置高度10vh</var-scene>
   </div>
 </template>
+<script>
+export default {
+  name: "SceneSize",
+};
+</script>
 <style lang="scss" scoped>
 .line {
   background-color: rgb(238, 238, 238);

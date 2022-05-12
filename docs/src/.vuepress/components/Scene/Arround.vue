@@ -20,6 +20,11 @@
     <br />
   </div>
 </template>
+<script>
+export default {
+  name: "SceneAround",
+};
+</script>
 <style lang="scss" scoped>
 .line {
   background-color: rgb(240, 240, 240);

@@ -16,9 +16,9 @@
   "devDependencies": {
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vuepress": "^1.9.5"
+    "vuepress": "^1.9.7"
   },
   "dependencies": {
-    "vary-ui": "^1.0.11"
+    "vary-ui": "^1.0.12"
   }
 }

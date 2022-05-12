@@ -6,3 +6,8 @@
     </var-scene>
   </div>
 </template>
+<script>
+export default {
+  name: "SceneFlex",
+};
+</script>
