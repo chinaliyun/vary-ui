@@ -6,11 +6,13 @@
           v-for="(col, index) in columns"
           :key="col.prop"
           class="v_table_col"
-          :class="{ fixed: col.fixed || false }"
-          :style="{ ...colStyle(col), ...headStyle, ...(col.headStyle || {}) }"
         >
           <slot :name="col.prop + '_th'" v-bind="{ col, index, data }">
-            <div class="v_table_cell">
+            <div
+              class="v_table_cell"
+              :class="{ fixed: col.fixed || false }"
+              :style="{ ...headStyle, ...(col.headStyle || {}) }"
+            >
               {{ col.label }}
             </div>
           </slot>
@@ -21,14 +23,12 @@
         :key="row.id"
         class="v_table_row v_table_trow"
       >
-        <div
-          v-for="col in columns"
-          :key="col.prop"
-          class="v_table_col"
-          :style="{ ...colStyle(col), ...rowStyle, ...(col.rowStyle || {}) }"
-        >
+        <div v-for="col in columns" :key="col.prop" class="v_table_col">
           <slot :name="[col.prop]" v-bind="{ row, index, data }">
-            <div class="v_table_cell">
+            <div
+              class="v_table_cell"
+              :style="{ ...rowStyle, ...(col.rowStyle || {}) }"
+            >
               {{ row[col.prop] }}
             </div>
           </slot>
@@ -83,15 +83,7 @@ export default {
     };
   },
   mounted() {},
-  methods: {
-    colStyle(v) {
-      const res = {};
-      if (v.width) {
-        res.width = v.width + "px";
-      }
-      return res;
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="scss">
@@ -114,6 +106,11 @@ export default {
     }
     .v_table_col + .v_table_col {
       border-left: 1px solid $border-color2;
+    }
+    .v_table_row:nth-child(2) {
+      .v_table_col {
+        border-top: none;
+      }
     }
   }
   &.left {
