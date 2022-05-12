@@ -2,7 +2,7 @@
   <div class="page_root">
     <UploadDemo />
     <br />
-    <var-card title="Steps">
+    <var-card title="Steps" shadow>
       <var-steps :data="steps" active="1"></var-steps>
     </var-card>
     <br />

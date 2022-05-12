@@ -98,7 +98,7 @@ export default {
   color: #333;
   flex-shrink: 0;
   &:hover {
-    background-color: lighten($border-color, 4%);
+    background-color: darken($border-color, 4%);
   }
   .prefix_icon {
     padding-right: 4px;
@@ -113,25 +113,25 @@ export default {
   &.primary {
     background-color: $main-color;
     &:hover {
-      background-color: lighten($main-color, 12%);
+      background-color: darken($main-color, 12%);
     }
   }
   &.warning {
     background-color: $warning-color;
     &:hover {
-      background-color: lighten($warning-color, 12%);
+      background-color: darken($warning-color, 12%);
     }
   }
   &.error {
     background-color: $error-color;
     &:hover {
-      background-color: lighten($error-color, 12%);
+      background-color: darken($error-color, 12%);
     }
   }
   &.success {
     background-color: $success-color;
     &:hover {
-      background-color: lighten($success-color, 12%);
+      background-color: darken($success-color, 12%);
     }
   }
   &.border {
@@ -141,7 +141,7 @@ export default {
     border-width: 1px;
     border-style: solid;
     &:hover {
-      background-color: lighten($border-color, 13%);
+      background-color: darken($border-color, 13%);
     }
     &.primary {
       border-color: $main-color;

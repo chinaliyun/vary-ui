@@ -1,6 +1,6 @@
 {
   "name": "vary-ui",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "A UI Conponent Library based Vue2, Faster, Lighter, Simpler",
   "homepage": "https://github.com/chinaliyun/vary-ui.git",
   "main": "src/index.js",

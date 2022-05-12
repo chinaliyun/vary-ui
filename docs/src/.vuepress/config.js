@@ -35,7 +35,7 @@ module.exports = {
         {
           title: "组件",
           collapsable: false,
-          children: ["avatar", "button", "scene", "preview"],
+          children: ["avatar", "button", "card", "scene", "preview"],
         },
       ],
       "/options/": [
