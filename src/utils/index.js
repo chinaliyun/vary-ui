@@ -1,17 +1,24 @@
-export const debounce = function (fn, duration = 1000) {
+export function debounce(fn, duration = 1000) {
   let timer = null;
   return function () {
-    if (timer == null) {
-      fn.call(this);
+    if (!timer) {
+      fn.call(this, ...arguments);
+      console.log("timer");
+      timer = setTimeout(() => {
+        clearTimeout(timer);
+        timer = null;
+      }, duration);
+    } else {
+      clearTimeout(timer);
       timer = setTimeout(() => {
         clearTimeout(timer);
         timer = null;
       }, duration);
     }
   };
-};
+}
 
-export const throttle = function (fn, duration = 1000) {
+export function throttle(fn, duration = 1000) {
   // 如果当前时间减去上次点击时间,少于duration,则重置定时器
   let last;
   let timer = null;
@@ -35,7 +42,7 @@ export const throttle = function (fn, duration = 1000) {
       }
     }
   };
-};
+}
 
 export function validateMobile(str) {
   // 检查手机号码格式
