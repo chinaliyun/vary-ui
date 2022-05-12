@@ -1,0 +1,24 @@
+{
+  "name": "ui-docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "chinaloki",
+    "email": ""
+  },
+  "repository": "/ui-docs",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vuepress": "^1.9.5"
+  },
+  "dependencies": {
+    "vary-ui": "^1.0.9"
+  }
+}

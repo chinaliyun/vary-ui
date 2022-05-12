@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[27],{675:function(t,e,s){"use strict";s.r(e);var n=s(1),i=Object(n.a)({},(function(){var t=this.$createElement,e=this._self._c||t;return e("div",{staticClass:"code_wrapper"},[e("var-scene",[e("p",[this._v("第1行")]),this._v(" "),e("p",[this._v("第2行")])])],1)}),[],!1,null,null,null);e.default=i.exports}}]);
