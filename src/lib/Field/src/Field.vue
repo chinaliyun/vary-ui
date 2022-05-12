@@ -1,36 +1,22 @@
 <template>
-  <div class="v_field">
-    <div v-if="vertical" class="top_label">
-      <div v-if="required" class="star">
+  <div class="v_field" :class="{ vertical }">
+    <div
+      v-if="label"
+      class="v_field_label"
+      :class="{ vertical, left, center, right }"
+      :style="labelStyle"
+    >
+      <div v-if="required" class="star inline_star">
         <span>*</span>
       </div>
       <div>
         {{ label }}
       </div>
     </div>
-    <div class="inline_row">
-      <div
-        v-if="inline"
-        class="inline_lable_wrapper"
-        :class="{ left, center, right, top }"
-        :style="labelStyle"
-      >
-        <div class="inline_label">
-          <div v-if="required" class="star inline_star">
-            <span>*</span>
-          </div>
-          {{ label }}
-        </div>
-      </div>
-      <div class="v_field_body">
-        <div><slot /></div>
-        <div v-if="inline" :class="{ msg, err }">{{ err ? err : msg }}</div>
-      </div>
+    <div class="v_field_body" :class="{ vertical }">
+      <slot />
+      <div :class="{ msg, err }">{{ err ? err : msg }}</div>
     </div>
-    <div v-if="!inline && !vertical && required" class="star outer_star">
-      <span>*</span>
-    </div>
-    <div v-if="!inline" :class="{ msg, err }">{{ err ? err : msg }}</div>
   </div>
 </template>
 
@@ -44,10 +30,6 @@ export default {
   props: {
     value: String,
     required: {
-      type: Boolean,
-      default: false,
-    },
-    inline: {
       type: Boolean,
       default: false,
     },
@@ -66,7 +48,6 @@ export default {
     left: Boolean,
     right: Boolean,
     center: Boolean,
-    top: Boolean,
     err: String,
     msg: String,
   },
@@ -105,72 +86,65 @@ export default {
 
 <style lang="scss" >
 .v_field {
-  // width: 100%;
-  position: relative;
-  .v_field_body {
-    flex-grow: 1;
+  display: flex;
+  align-items: center;
+  &.vertical {
+    display: block;
   }
-  .top_label {
-    display: flex;
-    align-items: center;
-    padding-bottom: 4px;
-  }
-  .star {
-    width: 17px;
-    color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .inline_row {
-    display: flex;
-    .inline_lable_wrapper {
-      flex-shrink: 0;
-      padding-right: 10px;
-      display: flex;
-      align-items: center;
-      // height: 40px;
-      // line-height: 40px;
-      &.left {
-        justify-content: flex-start;
-      }
-      &.center {
-        justify-content: center;
-      }
-      &.right {
-        justify-content: flex-end;
-      }
-      &.top {
-        align-self: flex-start;
-      }
-      .inline_label {
-        position: relative;
-      }
+  .v_field_label {
+    flex-shrink: 0;
+    padding-right: 10px;
+    position: relative;
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
+    &.vertical {
+      padding: 6px 0;
       .inline_star {
-        position: absolute;
-        left: -14px;
-        top: 0;
+        top: 8px;
       }
     }
+    .inline_star {
+      position: absolute;
+      left: -14px;
+      top: 0;
+      width: 17px;
+      color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
-  .outer_star {
-    position: absolute;
-    right: -14px;
-    top: 0;
-    bottom: 0;
-    height: 38px;
-    margin-left: 7px;
-  }
-  .msg {
-    margin-top: 4px;
-    font-size: 12px;
-    color: $warning-color;
-  }
-  .err {
-    margin-top: 4px;
-    color: red;
-    font-size: 12px;
-    animation: show 0.5s linear;
+  .v_field_body {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    .msg,
+    .err {
+      font-size: 12px;
+      padding: 0 10px;
+      animation: show 0.5s linear;
+      flex-shrink: 0;
+    }
+    .msg {
+      color: $message-color;
+    }
+    .err {
+      color: $error-color;
+    }
+    &.vertical {
+      display: block;
+      .msg,
+      .err {
+        padding: 6px 0;
+      }
+    }
   }
   @keyframes show {
     0% {
