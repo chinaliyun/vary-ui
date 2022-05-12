@@ -20,7 +20,7 @@ module.exports = {
     nav: [
       {
         text: "组件",
-        link: "/components/scene",
+        link: "/components/avatar",
       }
     ],
     sidebar: {
