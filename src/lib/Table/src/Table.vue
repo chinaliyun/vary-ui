@@ -6,8 +6,8 @@
           v-for="(col, index) in columns"
           :key="col.prop"
           class="v_table_col"
-          :class="colClass(col)"
-          :style="colStyle(col)"
+          :class="{ fixed: col.fixed || false }"
+          :style="{ ...colStyle(col), ...headStyle, ...(col.headStyle || {}) }"
         >
           <slot :name="col.prop + '_th'" v-bind="{ col, index, data }">
             <div class="v_table_cell">
@@ -25,8 +25,7 @@
           v-for="col in columns"
           :key="col.prop"
           class="v_table_col"
-          :class="colClass(col)"
-          :style="colStyle(col)"
+          :style="{ ...colStyle(col), ...rowStyle, ...(col.rowStyle || {}) }"
         >
           <slot :name="[col.prop]" v-bind="{ row, index, data }">
             <div class="v_table_cell">
@@ -65,6 +64,18 @@ export default {
       type: Boolean,
       default: false,
     },
+    headStyle: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+    rowStyle: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -73,22 +84,6 @@ export default {
   },
   mounted() {},
   methods: {
-    colClass(v) {
-      const res = [];
-      if (v.align) {
-        res.push(v.align);
-      }
-      if (v.width) {
-        res.push("fixed");
-      }
-      if (this.$scopedSlots[v.prop + "_th"]) {
-        res.push("slot_header");
-      }
-      if (this.$scopedSlots[v.prop]) {
-        res.push("slot_row");
-      }
-      return res;
-    },
     colStyle(v) {
       const res = {};
       if (v.width) {
@@ -146,23 +141,13 @@ export default {
       flex-shrink: 0;
       flex-grow: 0;
     }
-    &.slot_header {
-      padding: 0;
-    }
-    &.slot_row {
-      padding: 0;
-    }
   }
   .v_table_thead {
     background-color: #fbfbfb;
-    border-bottom: 1px solid $border-color;
     white-space: nowrap;
   }
   .v_table_row {
     display: table-row;
-    + .v_table_row {
-      border-top: 1px solid $border-color2;
-    }
   }
   .v_table_trow {
     &:hover {
@@ -178,6 +163,10 @@ export default {
     color: rgb(105, 105, 105);
   }
   .v_table_thead {
+    .v_table_col {
+      border-top: 1px solid $border-color2;
+      border-bottom: 1px solid $border-color2;
+    }
     .v_table_cell {
       font-weight: bold;
     }
