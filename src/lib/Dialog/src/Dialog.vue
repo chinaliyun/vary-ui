@@ -115,7 +115,7 @@ export default {
         margin-right: 10px;
         flex-shrink: 0;
         &:hover {
-          color: $main-color;
+          color: $dialog-color;
         }
       }
     }

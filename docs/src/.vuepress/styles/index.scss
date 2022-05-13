@@ -39,7 +39,7 @@ $checkbox-color:$border-color; // 复选框默认颜色
 $checkbox-selected-color:$main-color; // 复选框被选中颜色
 
 $field-tips-color:$tips-color; // 表单控件提示语颜色
-$field-err-color: $error-color;// 表单控件错误提示语颜色
+$field-error-color: $error-color;// 表单控件错误提示语颜色
 
 $input-color:$font-color; // 输入框默认文字颜色
 $input-placeholder-color:$font-color3; // 输入框提示语颜色
@@ -51,9 +51,17 @@ $input-disabled-color:$border-color2; // 输入框被禁用状态颜色
 $input-option-arrow-color:$border-color;// 输入框选项的下级菜单箭头颜色
 $input-option-border-color:$border-color;// 输入框选项的边框色
 
+$link-color:$font-color2; // 按钮默认文字颜色
+$link-primary-color:$primary-color; // primary 风格文字颜色
+$link-warning-color:$warning-color;// warning 风格文字颜色
+$link-error-color:$error-color;// error 风格文字颜色
+$link-success-color:$success-color;// success 风格文字颜色
+$link-disabled-color: $font-color3;
+
 $picker-border-color: $border-color; // picker组件边框色
-$picker-background-color: $border-color2; // picker组件背景色
+$picker-background-color: $border-color; // picker组件背景色
 
 $dialog-color:$main-color;
 $dialog-border-color:$border-color; // 弹窗的边框色
 $dialog-confirm-button-color:$primary-color; // 弹窗确认按钮的背景色
+

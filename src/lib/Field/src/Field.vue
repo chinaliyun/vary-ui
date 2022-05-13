@@ -136,10 +136,10 @@ export default {
       flex-shrink: 0;
     }
     .msg {
-      color: $tips-color;
+      color: $field-tips-color;
     }
     .err {
-      color: $error-color;
+      color: $field-error-color;
     }
     &.vertical {
       display: block;

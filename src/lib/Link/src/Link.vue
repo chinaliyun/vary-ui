@@ -1,13 +1,13 @@
 <template>
   <div
     class="v_link"
-    :class="{ primary, warning, error, success, border }"
+    :class="{ primary, warning, error, success, disabled }"
     @click.stop="clickTrigger"
   >
-    <div class="v_link_body">
-      <div v-if="prefixIcon" class="prefix_icon" :class="[prefixIcon]"></div>
+    <var-scene flex center middle>
+      <slot name="prefix" />
       <slot />
-    </div>
+    </var-scene>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   props: {
     wait: {
       type: [String, Number, Boolean],
-      default: false,
+      default: "800",
     },
     prefixIcon: {
       type: String,
@@ -28,13 +28,14 @@ export default {
     warning: Boolean,
     error: Boolean,
     success: Boolean,
-    border: Boolean,
+    disabled: Boolean,
   },
 
   data() {
     return {
       realWait: 0,
       classAttrs: [],
+      styleMap: {},
     };
   },
   mounted() {
@@ -42,7 +43,17 @@ export default {
   },
   methods: {
     init() {
-      if (Object.prototype.hasOwnProperty.call(this.$props, "wait")) {
+      const style = {};
+      const width = this.w || this.width;
+      if (/^\d+$/.test(width) && width > 0) {
+        style.width = width + "px";
+        this.styleMap = style;
+      }
+      if (this.wait === false) {
+        this._clickTrigger = () => {
+          this.$emit("click");
+        };
+      } else {
         this.realWait = 1000;
         const { wait } = this.wait;
         if (/^\d+$/.test(wait) && wait > 0) {
@@ -58,14 +69,12 @@ export default {
             trailing: false,
           }
         );
-      } else {
-        this._clickTrigger = () => {
-          this.$emit("click");
-        };
       }
     },
     clickTrigger() {
-      this._clickTrigger();
+      if (!this.disabled) {
+        this._clickTrigger();
+      }
     },
   },
 };
@@ -75,47 +84,50 @@ export default {
 .v_link {
   display: inline-block;
   cursor: pointer;
-  padding: 0 2px;
-  .v_link_body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
+  font-size: 14px;
+  color: $link-color;
+  flex-shrink: 0;
+  &:hover {
+    color: darken($link-color, 4%);
   }
   .prefix_icon {
     padding-right: 4px;
   }
+  &.primary,
+  &.warning,
+  &.error,
+  &.success {
+    border: none;
+  }
   &.primary {
-    color: $link-color;
+    color: $link-primary-color;
+    &:hover {
+      color: darken($link-primary-color, 12%);
+    }
   }
   &.warning {
-    color: $warning-color;
+    color: $link-warning-color;
+    &:hover {
+      color: darken($link-warning-color, 12%);
+    }
   }
   &.error {
-    color: $error-color;
+    color: $link-error-color;
+    &:hover {
+      color: darken($link-error-color, 12%);
+    }
   }
   &.success {
-    color: $success-color;
+    color: $link-success-color;
+    &:hover {
+      color: darken($link-success-color, 12%);
+    }
   }
-  &.border {
-    border: 1px solid $border-color;
-    border-radius: 4px;
-    color: $font-color2;
-    &.primary {
-      border-color: $main-color;
-      color: $main-color;
-    }
-    &.success {
-      border-color: $success-color;
-      color: $success-color;
-    }
-    &.error {
-      border-color: $error-color;
-      color: $error-color;
-    }
-    &.warning {
-      border-color: $warning-color;
-      color: $warning-color;
+  &.disabled {
+    cursor: not-allowed;
+    color: $link-disabled-color;
+    &:hover {
+      color: $link-disabled-color;
     }
   }
 }

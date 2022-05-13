@@ -46,7 +46,7 @@ module.exports = {
         {
           title: "组件库",
           collapsable: false,
-          children: ["avatar", "button", "card", "preview"],
+          children: ["avatar", "dialog", "button", "link", "card", "preview"],
         },
       ],
       "/options/": [

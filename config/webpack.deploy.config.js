@@ -44,7 +44,10 @@ module.exports = {
           {
             loader: "sass-resources-loader",
             options: {
-              resources: path.resolve(__dirname, "../src/var.scss"),
+              resources: path.resolve(
+                __dirname,
+                "../docs/src/.vuepress/styles/index.scss"
+              ),
             },
           },
         ],
