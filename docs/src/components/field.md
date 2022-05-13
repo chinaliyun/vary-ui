@@ -6,36 +6,44 @@ pageClass: custom-page-class
 
 ## 基础用法
 
-`title`属性用来设置卡片的标题, `shadow`用来打开卡片的阴影效果
+`label`属性用来设置表单的标题, `required`用来表示该表单属于必填项
 
 <br/>
 <Field-Base/>
 
 <<< ./src/.vuepress/components/Field/Base.vue
 
-## 副标题插槽
+## 排列方向
 
-组件提供了`subtitle`插槽, 作为卡片的副标题, 要注意的是: 副标题插槽不提供任何样式, 所有的样式都由用户定义
+默认情况下, `label`与`slot`,`提示语`三者是横向排列的, 如果希望他们垂直排列, 可以使用`vertical`属性
 
 <br/>
 
-<Card-SubTitle/>
+<Field-Vertical/>
 
-<<< ./src/.vuepress/components/Card/SubTitle.vue
+<<< ./src/.vuepress/components/Field/Vertical.vue
+
+## label 的尺寸与位置
+
+`label-width`属性可以设置`label`部分的宽度, 支持所有的 CSS 常见尺寸单位, 默认情况下, `label`内的文字是靠左对齐的, `center,right`可以设置`label`居中或者靠右对齐
+
+<Field-Size/>
+
+<<< ./src/.vuepress/components/Field/Size.vue
 
 ## props
 
-| name        | 默认值 | 说明                                      |
-| ----------- | ------ | ----------------------------------------- |
-| vertical    | null   | 设置表单名称, 内容, 错误信息,垂直排列显示 |
-| required    | null   | 设置当前表单是否必填                      |
-| label       | null   | 表单名称                                  |
-| label-width | null   | 设置 label 的宽度                         |
-| left        | true   | label 中的文字左对齐                      |
-| right       | false  | 设置 label 中的文字右对齐                 |
-| center      | false  | 设置 label 中的文字居中对齐               |
-| err         | false  | 设置错误信息                              |
-| msg         | false  | 设置提示信息                              |
+| name        | 默认值 | 说明                                                   |
+| ----------- | ------ | ------------------------------------------------------ |
+| vertical    | null   | 设置表单名称, 内容, 错误信息,垂直排列显示              |
+| required    | null   | 设置当前表单是否必填, 该选项仅做展示提示, 无任何逻功能 |
+| label       | null   | 表单名称                                               |
+| label-width | null   | 设置 label 的宽度                                      |
+| left        | true   | label 中的文字左对齐                                   |
+| right       | false  | 设置 label 中的文字右对齐                              |
+| center      | false  | 设置 label 中的文字居中对齐                            |
+| err         | false  | 设置错误信息                                           |
+| msg         | false  | 设置提示信息                                           |
 
 ## slots
 

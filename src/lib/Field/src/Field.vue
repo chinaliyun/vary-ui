@@ -6,10 +6,10 @@
       :class="{ vertical, left, center, right }"
       :style="labelStyle"
     >
-      <div v-if="required" class="star inline_star">
+      <!-- <div v-if="required" class="inline_star">
         <span>*</span>
-      </div>
-      <div>
+      </div> -->
+      <div class="label_name" :class="{ required }">
         {{ label }}
       </div>
     </div>
@@ -95,14 +95,15 @@ export default {
     flex-shrink: 0;
     padding-right: 10px;
     position: relative;
+    display: flex;
     &.left {
-      text-align: left;
+      justify-content: flex-start;
     }
     &.center {
-      text-align: center;
+      justify-content: center;
     }
     &.right {
-      text-align: right;
+      justify-content: flex-end;
     }
     &.vertical {
       padding: 6px 0;
@@ -110,15 +111,19 @@ export default {
         top: 8px;
       }
     }
-    .inline_star {
-      position: absolute;
-      left: -14px;
-      top: 0;
-      width: 17px;
-      color: red;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .label_name {
+      position: relative;
+      &.required::before {
+        content: "*";
+        position: absolute;
+        left: -14px;
+        top: 0;
+        width: 17px;
+        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
   .v_field_body {
