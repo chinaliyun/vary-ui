@@ -26,11 +26,14 @@ module.exports = {
     sidebar: {
       "/components/": [
         {
+          title: "安装及环境",
+          collapsable: false,
+          children: ["install", "variable"],
+        },
+        {
           title: "组件库",
           collapsable: false,
           children: [
-            "install",
-            "variable",
             "avatar",
             "button",
             "card",

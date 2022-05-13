@@ -11,7 +11,7 @@
         {{ label }}
       </div>
     </div>
-    <div class="v_field_body" :class="{ vertical }">
+    <div class="v_field_body" :class="{ vertical: vertical || (!msg && !msg) }">
       <slot />
       <div :class="{ msg, err }">{{ err ? err : msg }}</div>
     </div>
@@ -136,7 +136,7 @@ export default {
       flex-shrink: 0;
     }
     .msg {
-      color: $message-color;
+      color: $tips-color;
     }
     .err {
       color: $error-color;

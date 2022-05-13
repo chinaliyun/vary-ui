@@ -168,10 +168,10 @@ export default {
         transition: background 0.1s linear;
         outline: none;
         font-size: 14px;
-        background-color: $main-color;
+        background-color: $alert-confirm-background-color;
         color: white;
         &:hover {
-          background-color: lighten($main-color, 12%);
+          background-color: darken($alert-confirm-background-color, 12%);
         }
       }
       .cancel_btn {
@@ -181,8 +181,8 @@ export default {
         cursor: pointer;
         margin-left: 10px;
         background-color: white;
-        border-color: $border-color;
-        color: $font-color;
+        border-color: $alert-border-color;
+        color: $alert-color;
         border-width: 1px;
         border-style: solid;
       }

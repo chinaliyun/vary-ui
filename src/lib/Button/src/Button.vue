@@ -94,11 +94,11 @@ export default {
   transition: background 0.1s linear;
   outline: none;
   font-size: 14px;
-  background-color: rgb(243, 243, 243);
-  color: #333;
+  background-color: $button-background-color;
+  color: $button-color;
   flex-shrink: 0;
   &:hover {
-    background-color: darken($border-color, 4%);
+    background-color: darken($button-background-color, 4%);
   }
   .prefix_icon {
     padding-right: 4px;
@@ -111,61 +111,87 @@ export default {
     border: none;
   }
   &.primary {
-    background-color: $main-color;
+    background-color: $button-primary-background-color;
+    color: $button-primary-color;
     &:hover {
-      background-color: darken($main-color, 12%);
+      background-color: darken($button-primary-background-color, 12%);
     }
   }
   &.warning {
-    background-color: $warning-color;
+    background-color: $button-warning-background-color;
+    color: $button-warning-color;
     &:hover {
-      background-color: darken($warning-color, 12%);
+      background-color: darken($button-warning-background-color, 12%);
     }
   }
   &.error {
-    background-color: $error-color;
+    background-color: $button-error-background-color;
+    color: $button-error-color;
     &:hover {
-      background-color: darken($error-color, 12%);
+      background-color: darken($button-error-background-color, 12%);
     }
   }
   &.success {
-    background-color: $success-color;
+    background-color: $button-success-background-color;
+    color: $button-success-color;
     &:hover {
-      background-color: darken($success-color, 12%);
+      background-color: darken($button-success-color, 12%);
     }
   }
   &.border {
     background-color: white;
-    border-color: $border-color;
-    color: $font-color;
+    border-color: $button-color;
+    color: $button-color;
     border-width: 1px;
     border-style: solid;
     &:hover {
-      background-color: darken($border-color, 13%);
+      background-color: $button-color;
+      border-color: $button-color;
+      color: white;
     }
     &.primary {
-      border-color: $main-color;
-      color: $main-color;
+      border-color: $button-primary-background-color;
+      color: $button-primary-background-color;
+      &:hover {
+        background-color: $button-primary-background-color;
+        border-color: $button-primary-background-color;
+        color: white;
+      }
     }
     &.success {
-      border-color: $success-color;
-      color: $success-color;
+      border-color: $button-success-background-color;
+      color: $button-success-background-color;
+      &:hover {
+        background-color: $button-success-background-color;
+        border-color: $button-success-background-color;
+        color: white;
+      }
     }
     &.error {
-      border-color: $error-color;
-      color: $error-color;
+      border-color: $button-error-background-color;
+      color: $button-error-background-color;
+      &:hover {
+        background-color: $button-error-background-color;
+        border-color: $button-error-background-color;
+        color: white;
+      }
     }
     &.warning {
-      border-color: $warning-color;
-      color: $warning-color;
+      border-color: $button-warning-background-color;
+      color: $button-warning-background-color;
+      &:hover {
+        background-color: $button-warning-background-color;
+        border-color: $button-warning-background-color;
+        color: white;
+      }
     }
   }
   &.disabled {
     cursor: not-allowed;
-    background-color: $border-color2;
+    background-color: $button-disabled-background-color;
     color: rgb(189, 189, 189);
     &:hover {
-      background-color: $border-color2;
+      background-color: $button-disabled-background-color;
     }
   }
 }
