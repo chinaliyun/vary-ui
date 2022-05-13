@@ -31,17 +31,22 @@ module.exports = {
           children: ["install", "variable"],
         },
         {
-          title: "组件库",
+          title: "布局",
           collapsable: false,
           children: [
-            "avatar",
-            "button",
-            "card",
             "scene",
-            "input",
-            "field",
-            "preview",
+            // "space"
           ],
+        },
+        {
+          title: "表单",
+          collapsable: false,
+          children: ["field", "input", "checkbox"],
+        },
+        {
+          title: "组件库",
+          collapsable: false,
+          children: ["avatar", "button", "card", "preview"],
         },
       ],
       "/options/": [
