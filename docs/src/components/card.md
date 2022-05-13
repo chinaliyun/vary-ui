@@ -32,7 +32,7 @@ pageClass: custom-page-class
 
 ## slots
 
-| name     | 默认值 | 说明         |
-| -------- | ------ | ------------ |
-| default  | null   | 卡片内容     |
-| subtitle | null   | 是否打开阴影 |
+| name     | 默认值 | 说明       |
+| -------- | ------ | ---------- |
+| default  | null   | 卡片内容   |
+| subtitle | null   | 副标题插槽 |
