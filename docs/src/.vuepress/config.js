@@ -10,7 +10,7 @@ module.exports = {
       { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
   ],
-  dest: path.resolve(__dirname, "../../../docs"),
+  dest: path.resolve(__dirname, "../../dist"),
   themeConfig: {
     repo: "",
     editLinks: false,
