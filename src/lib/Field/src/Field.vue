@@ -11,7 +11,7 @@
         {{ label }}
       </div>
     </div>
-    <div class="v_field_body" :class="{ vertical: vertical || (!msg && !msg) }">
+    <div class="v_field_body" :class="{ vertical: vertical || (!msg && !err) }">
       <slot />
       <div :class="{ msg, err }">{{ err ? err : msg }}</div>
     </div>

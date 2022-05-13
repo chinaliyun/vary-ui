@@ -6,6 +6,7 @@
           v-for="(col, index) in columns"
           :key="col.prop"
           class="v_table_col"
+          :style="{ ...colStyle(col) }"
         >
           <slot :name="col.prop + '_th'" v-bind="{ col, index, data }">
             <div
@@ -83,7 +84,15 @@ export default {
     };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    colStyle(v) {
+      const res = {};
+      if (v.width) {
+        res.width = v.width + "px";
+      }
+      return res;
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -106,11 +115,6 @@ export default {
     }
     .v_table_col + .v_table_col {
       border-left: 1px solid $border-color2;
-    }
-    .v_table_row:nth-child(2) {
-      .v_table_col {
-        border-top: none;
-      }
     }
   }
   &.left {
@@ -162,13 +166,13 @@ export default {
   .v_table_thead {
     .v_table_col {
       border-top: 1px solid $border-color2;
-      border-bottom: 1px solid $border-color2;
     }
     .v_table_cell {
       font-weight: bold;
     }
   }
   .v_table_col {
+    border-top: 1px solid $border-color2;
     &.center {
       .v_table_cell {
         justify-content: center;
