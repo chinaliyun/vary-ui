@@ -75,10 +75,6 @@ export default {
     event: "change",
   },
   props: {
-    prefixIcon: {
-      type: String,
-      default: "",
-    },
     value: {
       type: [Number, String],
       default: "",
@@ -175,14 +171,7 @@ export default {
     enter: debounce(function (e) {
       this.$emit("enter", this.value);
     }, 800),
-    updateValue() {
-      //  this.$refs.input.value = realValue;
-      //   this.$emit('change', realValue);
-      //   this.
-    },
     init() {
-      let value = this.value;
-
       if (/^\d{1,2}$/.test(this.format)) {
         this.formatType = 2;
       }
@@ -193,71 +182,71 @@ export default {
         this.formatType = 4;
       }
 
-      if ([2, 3, 4].includes(this.formatType)) {
-        value = (this.value + "").replace(/ /g, "");
-      }
-
       if (this.formatType === 1) {
         if (
           this.maxlength &&
-          !/[a-z]{1,}('[a-z]{1,})*$/.test(value) &&
-          value.length > this.maxlength
+          !/[a-z]{1,}('[a-z]{1,})*$/.test(this.value) &&
+          this.value.length > this.maxlength
         ) {
-          this.realValue = value.slice(0, this.maxlength);
+          this.realValue = this.value.slice(0, this.maxlength);
           this.$emit("change", this.realValue);
         } else {
-          this.realValue = value;
-          this.$emit("change", value);
+          this.realValue = this.value;
+          this.$emit("change", this.value);
         }
       }
       if (this.formatType === 2) {
-        value = value.replace(/^0+(\d)/, "$1");
         this.reg = new RegExp(`^\\d{1,${this.format}}$`);
         this.reg2 = new RegExp(`\\d{1,${this.format}}`);
+        // console.log(this.reg, this.value, this.reg.test(this.value));
         // 如果value包含非数字字符, 直接清空, 如果没有直接赋值
         // 否则 如果长度大于format, 截取字符串,
         //      如果长度小于format, 直接使用
-        // console.log('%c' + value, 'color:red');
-        if (/\D/.test(value)) {
-          this.realValue = "";
+        // console.log('%c' + this.value, 'color:red');
+        if (/\D/.test(this.value)) {
           this.$emit("change", this.realValue);
+        } else if (this.value.length > this.format) {
+          this.$emit("change", this.value.slice(0, this.format));
         } else {
-          this.realValue = value.slice(0, this.format);
-          this.$emit("change", this.realValue);
+          this.realValue = this.value;
+          this.$emit("change", this.value);
         }
       }
       if (this.formatType === 3) {
-        value = value
-          .replace(/^0+(\d)/, "$1")
-          .replace(/\.0+$/, "")
-          .replace(/(\d)0+$/, "$1");
         const integer = this.format.match(/^(\d)\.(\d)$/)[1];
         const decimal = this.format.match(/^(\d)\.(\d)$/)[2];
-        this.reg = new RegExp(`^\\d{1,${integer}}(\\.\\d{1,${decimal}})?$`);
-        this.reg2 = new RegExp(`\\d{1,${integer}}(\\.\\d{1,${decimal}})?`);
-        if (!this.reg2.test(value)) {
+        this.reg = new RegExp(
+          `^\\d{1,${integer}}((\\.\\d{1,${decimal}})|(\\.))?$`
+        );
+        this.reg2 = new RegExp(
+          `\\d{1,${integer}}((\\.\\d{1,${decimal}})|(\\.))?`
+        );
+        // 包含非数字,点的字符, 直接清空
+        // if (/[^\d.]/.test(this.value)) {
+        //   this.realValue = ''
+        //   this.$emit('change', this.realValue)
+        //   return
+        // }
+        // if (/[a-z]{1,}('[a-z]{1,})*/.test(this.value)) {
+        //   return
+        // }
+        if (!this.reg2.test(this.value)) {
           this.realValue = "";
           this.$emit("change", this.realValue);
         } else {
-          this.realValue = value.match(this.reg2)[0];
+          this.realValue = this.value.match(this.reg2)[0];
           this.$emit("change", this.realValue);
         }
         return;
       }
       if (this.formatType === 4) {
-        value = value
-          .replace(/^0+(\d)/, "$1")
-          .replace(/\.0+$/, "")
-          .replace(/(\d)0+$/, "$1");
         const decimal = this.format.match(/^\.(\d)$/)[1];
-        this.reg = new RegExp(`^\\d+(\\.\\d{1,${decimal}})?$`);
-        this.reg2 = new RegExp(`\\d+(\\.\\d{1,${decimal}})?`);
-        if (!this.reg2.test(value)) {
+        this.reg = new RegExp(`^\\d+((\\.)|(\\.\\d{1,${decimal}}))?$`);
+        if (!this.reg.test(this.value)) {
           this.realValue = "";
           this.$emit("change", this.realValue);
         } else {
-          this.realValue = value.match(this.reg2)[0];
-          this.$emit("change", this.realValue);
+          this.realValue = this.value;
         }
       }
     },
@@ -397,7 +386,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .v_input {
   height: 36px;
   position: relative;
@@ -405,39 +394,25 @@ export default {
     height: 100%;
     display: flex;
     align-items: center;
-    border: 1px solid $border-color;
+    border: 1px solid $input-border-color;
     border-radius: 4px;
     transition: border-color 0.2s linear;
-    background-color: white;
+    background-color: $input-background-color;
     overflow: hidden;
     &.disabled {
-      background-color: rgb(245, 245, 245);
-    }
-
-    &.err {
-      border-color: $error-color;
+      background-color: $input-disabled-color;
     }
     &.focus {
-      border-color: $main-color;
+      border-color: $input-border-focus-color;
+    }
+    &.err {
+      border-color: $input-border-error-color;
     }
     .prefix {
       flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .prefix_icon {
-      padding-left: 10px;
-      // position: absolute;
-      // bottom: 0;
-      // top: 0;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      &::before {
-        color: gray;
-        font-size: 18px;
-      }
     }
     .input_wrapper {
       flex-shrink: 0;
@@ -453,7 +428,7 @@ export default {
       min-width: 30px;
       font-size: 14px;
       border: none;
-      color: #333;
+      color: $input-color;
       transition: border-color 0.2s linear;
       border-color: transparent;
       flex-shrink: 1;
@@ -462,7 +437,7 @@ export default {
       }
       &:focus {
         // border: none;
-        border-color: $main-color;
+        border-color: transparent;
         outline: none;
       }
       &:read-only {
@@ -473,7 +448,7 @@ export default {
         cursor: default;
       }
       &::-webkit-input-placeholder {
-        color: #c4c4c4;
+        color: $input-placeholder-color;
         font-weight: 400;
         font-size: 14px;
       }
@@ -516,10 +491,10 @@ export default {
     left: 0;
     // right: 0;
     top: 36px;
-    // max-width: 300px;
+    width: 100%;
     padding-top: 14px;
     animation: show 0.2s linear;
-    z-index: 2;
+    z-index: 20;
     @keyframes show {
       from {
         top: 30px;
@@ -532,7 +507,7 @@ export default {
       width: 10px;
       height: 10px;
       background-color: white;
-      border: 1px solid $border-color;
+      border: 1px solid $input-option-arrow-color;
       border-bottom-color: transparent;
       border-right-color: transparent;
       transform: rotate(45deg);
@@ -544,7 +519,7 @@ export default {
     .option_list {
       border-radius: 4px;
       background-color: white;
-      border: 1px solid $border-color;
+      border: 1px solid $input-option-border-color;
       box-shadow: 0 0 3px rgba(94, 94, 94, 0.144);
       position: relative;
       padding-top: 6px;
@@ -566,21 +541,3 @@ export default {
   }
 }
 </style>
-
-<!--
-
-init(){
-  如果format为数字模式, 对传入value的空格做处理, 一律清空(字符串模式是允许空格的)
-  
-  如果formatType==2, 表示纯数字
-    value要移除前面的非正常0字符
-    如果包含非数字, 直接重置为空字符串
-    否则, 就从传入值中从左侧截取正确字符数量的字符同步给value(为什么要截取? 因为传入的值可能是纯数字, 但位数超过了需求)
-
-  如果formatType==3, 表示有零有整
-    value要移除前面和后面的非正常0字符
-    如果包含非[数字点]的字符, 直接重置为空字符串
-    否则, 从传入值中取出符合正则的内容,同步给value
-}
-
--->

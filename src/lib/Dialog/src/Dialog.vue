@@ -102,7 +102,7 @@ export default {
       display: flex;
       align-items: center;
       padding: 10px 10px 10px 30px;
-      border-bottom: 1px solid $border-color;
+      border-bottom: 1px solid $dialog-border-color;
       .title {
         flex-grow: 1;
         font-size: 18px;

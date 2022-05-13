@@ -492,7 +492,7 @@ export default {
 </script>
 <style lang="scss" >
 .v_datetime_picker {
-  border: 1px solid $border-color;
+  border: 1px solid $picker-border-color;
   background-color: white;
   border-radius: 4px;
   height: 36px;
@@ -584,8 +584,8 @@ export default {
       height: 8px;
       transform: rotate(45deg);
       background-color: white;
-      border-left: 1px solid $border-color;
-      border-top: 1px solid $border-color;
+      border-left: 1px solid $picker-border-color;
+      border-top: 1px solid $picker-border-color;
       border-right: none;
       border-bottom: none;
     }
@@ -598,8 +598,8 @@ export default {
       height: 8px;
       transform: rotate(45deg);
       background-color: white;
-      border-right: 1px solid $border-color;
-      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $picker-border-color;
+      border-bottom: 1px solid $picker-border-color;
       border-left: none;
       border-top: none;
     }
@@ -618,7 +618,7 @@ export default {
       .control_row {
         height: 40px;
         padding: 0 14px;
-        border-bottom: 1px solid $border-color2;
+        border-bottom: 1px solid $picker-border-color;
         display: flex;
         align-items: center;
       }
@@ -661,7 +661,7 @@ export default {
           border-radius: 20px;
           transition: all 0.2s linear;
           &:hover {
-            background-color: $border-color2;
+            background-color: $picker-background-color;
           }
         }
         &.gray {
@@ -791,7 +791,7 @@ export default {
         transition: all 0.2s linear;
         border-radius: 2px;
         &:hover {
-          background-color: $border-color2;
+          background-color: $picker-background-color;
         }
       }
       .confirm_btn {

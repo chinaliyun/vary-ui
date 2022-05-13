@@ -151,18 +151,18 @@ export default {
       height: 14px;
       border-radius: 2px;
       background-color: white;
-      border: 1px solid $border-color;
+      border: 1px solid $checkbox-color;
       transition: background-color 0.2s linear, border-color 0.2s linear;
       margin-right: 4px;
     }
     &.checkbox_selected {
       .real_checkbox {
         background: url("./images/selected.svg") no-repeat center/80%;
-        background-color: $main-color;
-        border-color: $main-color;
+        background-color: $checkbox-selected-color;
+        border-color: $checkbox-selected-color;
       }
       .label_text {
-        color: $main-color;
+        color: $checkbox-selected-color;
       }
     }
     &.checkbox_uncertain {

@@ -38,7 +38,7 @@ export default {
     display: flex;
     align-items: center;
     padding: 0 24px;
-    border-bottom: 1px solid $border-color2;
+    border-bottom: 1px solid $card-border-color;
     .v_card_title {
       font-size: 18px;
     }

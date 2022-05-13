@@ -1,8 +1,6 @@
 <template>
   <var-scene flex middle>
-    <var-input v-model="name" w="300" clearable placeholder="请输入姓名">
-    </var-input>
-    <var-scene pl="10">输入的内容为:{{ name }}</var-scene>
+    <var-input v-model="name" w="300" clearable :err="name.length > 3" />
   </var-scene>
 </template>
 

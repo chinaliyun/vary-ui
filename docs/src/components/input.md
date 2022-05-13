@@ -6,47 +6,72 @@ pageClass: custom-page-class
 
 ## 基础用法
 
-`label`属性用来设置表单的标题, `required`用来表示该表单属于必填项
+这是最基础的案例, `v-model`用来数据的双向绑定, `w`是`width`的简写, 用来指定输入框的宽度, 支持所有常用的 CSS 单位, `clearable`用来支持用户一键清空内容
 
 <br/>
 <Input-Base/>
 
 <<< ./src/.vuepress/components/Input/Base.vue
 
-## 排列方向
+## 前后插槽
 
-默认情况下, `label`与`slot`,`提示语`三者是横向排列的, 如果希望他们垂直排列, 可以使用`vertical`属性
+除了输入框, 组件提供了前置与后置两个插槽, 用来适应某些情景下的样式, 需要注意的是, 插槽不会内置任何样式, 需要用户自行提供
 
 <br/>
+<Input-Slot/>
 
-<Field-Vertical/>
+<<< ./src/.vuepress/components/Input/Slot.vue
 
-<<< ./src/.vuepress/components/Field/Vertical.vue
+## 错误警告状态
 
-## label 的尺寸与位置
+当`err`属性的值返回`true`时, 输入框会自动添加错误样式, 样式的颜色可以在全局变量中自行定义
 
-`label-width`属性可以设置`label`部分的宽度, 支持所有的 CSS 常见尺寸单位, 默认情况下, `label`内的文字是靠左对齐的, `center,right`可以设置`label`居中或者靠右对齐
+<br/>
+<Input-Error/>
 
-<Field-Size/>
+<<< ./src/.vuepress/components/Input/Error.vue
 
-<<< ./src/.vuepress/components/Field/Size.vue
+## 限制输入格式
+
+普通的`<input type='number'/>`会有默认两种限制: 1 是仅能输入数字, 2 是在移动端可以自动唤起输入法的数字键盘, 但是这种输入框右侧的箭头实在是太难看
+
+默认状态下, 组件支持输入任何字符, 当`format`属性有值 且它的值满足`\d, .\d , \d.\d`三种模式时,会转为数字输入模式, 要注意的是这种模式只能限制输入数字, 不能自动唤起数字键盘.
+
+<br/>
+<Input-Format/>
+
+<<< ./src/.vuepress/components/Input/Format.vue
+
+## 输入框备选项
+
+组件提供备选项功能, 如果传入了`data`属性, 当输入框获得焦点时, 会打开下拉框备选项
+
+<br/>
+<Input-Option/>
+
+<<< ./src/.vuepress/components/Input/Option.vue
 
 ## props
 
-| name        | 默认值 | 说明                                                   |
-| ----------- | ------ | ------------------------------------------------------ |
-| vertical    | null   | 设置表单名称, 内容, 错误信息,垂直排列显示              |
-| required    | null   | 设置当前表单是否必填, 该选项仅做展示提示, 无任何逻功能 |
-| label       | null   | 表单名称                                               |
-| label-width | null   | 设置 label 的宽度                                      |
-| left        | true   | 设置 label 中的文字左对齐                              |
-| right       | false  | 设置 label 中的文字右对齐                              |
-| center      | false  | 设置 label 中的文字居中对齐                            |
-| err         | false  | 设置错误信息                                           |
-| msg         | false  | 设置提示信息                                           |
+| name        | 默认值 | 说明                                   |
+| ----------- | ------ | -------------------------------------- |
+| format      | ''     | 限制内容格式                           |
+| left        | true   | 设置 value 中的文字左对齐              |
+| right       | false  | 设置 value 中的文字右对齐              |
+| center      | false  | 设置 value 中的文字居中对齐            |
+| maxlength   | false  | 设置输入框最大字符数量                 |
+| disabled    | false  | 设置禁用状态                           |
+| clearable   | false  | 设置是否显示一键清空按钮               |
+| autofocus   | false  | 设置元素 mounted 后自动获取焦点        |
+| err         | false  | 设置错误状态, 用于展示错误状态下的样式 |
+| data        | false  | 设置下拉框数据                         |
+| `w , width` | null   | 设置输入框宽度                         |
 
-## slots
+## methods
 
-| name    | 默认值 | 说明     |
-| ------- | ------ | -------- |
-| default | null   | 表单内容 |
+| name  | 默认值 | 说明                 |
+| ----- | ------ | -------------------- |
+| input | null   | 输入框 input 事件    |
+| enter | null   | 在表单内按下了回车键 |
+| blur  | null   | 输入框失去焦点事件   |
+| focus | null   | 输入框获取焦点事件   |

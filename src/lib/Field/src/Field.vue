@@ -136,7 +136,7 @@ export default {
       flex-shrink: 0;
     }
     .msg {
-      color: $message-color;
+      color: $tips-color;
     }
     .err {
       color: $error-color;
