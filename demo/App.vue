@@ -1,15 +1,15 @@
 <template>
   <div class="page_root">
     <!-- <UploadDemo /> -->
-    <var-field label="姓名" err="请输入正确的姓名" label-width="200">
-      <var-input w="200"></var-input>
-    </var-field>
-    <var-field label="姓名" err="请输入正确的姓名" label-width="200" center>
-      <var-input w="200"></var-input>
-    </var-field>
-    <var-field label="姓名" err="请输入正确的姓名" label-width="200" right>
-      <var-input w="200"></var-input>
-    </var-field>
+    <var-input v-model="name" w="300" clearable>
+      <template #prefix=""><var-scene p="10">价格</var-scene></template>
+      <template #suffix=""><var-scene p="10">元</var-scene></template>
+    </var-input>
+
+    <var-input v-model="name" w="300" clearable disabled>
+      <template #prefix=""><var-scene p="10">价格</var-scene></template>
+      <template #suffix=""><var-scene p="10">元</var-scene></template>
+    </var-input>
   </div>
 </template>
 <script>
@@ -21,9 +21,7 @@ export default {
   },
   data() {
     return {
-      log() {
-        console.log(1);
-      },
+      name: "hangsan",
     };
   },
   mounted() {},
@@ -95,7 +93,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .page_root {
-  background-color: rgb(238, 238, 238);
+  // background-color: rgb(238, 238, 238);
   padding: 30px;
 }
 </style>

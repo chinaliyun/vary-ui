@@ -21,21 +21,24 @@ module.exports = {
       {
         text: "组件",
         link: "/components/avatar",
-      }
+      },
     ],
     sidebar: {
-      "/guide/": [
-        {
-          title: "安装",
-          collapsable: false,
-          children: [],
-        },
-      ],
       "/components/": [
         {
-          title: "组件",
+          title: "组件库",
           collapsable: false,
-          children: ["avatar", "button", "card", "scene", "field", "preview"],
+          children: [
+            "install",
+            "variable",
+            "avatar",
+            "button",
+            "card",
+            "scene",
+            "input",
+            "field",
+            "preview",
+          ],
         },
       ],
       "/options/": [

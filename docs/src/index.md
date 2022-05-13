@@ -2,7 +2,7 @@
 home: true
 # tagline:
 actionText: Quick Start →
-actionLink: /guide/npm-source
+actionLink: /components/install
 # features:
 #   - title: Feature 1 Title
 #     details: Feature 1 Description

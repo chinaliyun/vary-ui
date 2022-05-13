@@ -2,16 +2,16 @@
 pageClass: custom-page-class
 ---
 
-# Field 表单域
+# Input 输入框
 
 ## 基础用法
 
 `label`属性用来设置表单的标题, `required`用来表示该表单属于必填项
 
 <br/>
-<Field-Base/>
+<Input-Base/>
 
-<<< ./src/.vuepress/components/Field/Base.vue
+<<< ./src/.vuepress/components/Input/Base.vue
 
 ## 排列方向
 

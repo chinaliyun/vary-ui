@@ -6,9 +6,7 @@
       :class="{ vertical, left, center, right }"
       :style="labelStyle"
     >
-      <!-- <div v-if="required" class="inline_star">
-        <span>*</span>
-      </div> -->
+      <!-- v_field_label 要用来定义label的宽度, label_name用来添加幸好 -->
       <div class="label_name" :class="{ required }">
         {{ label }}
       </div>

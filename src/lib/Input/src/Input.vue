@@ -1,9 +1,8 @@
 <template>
   <div class="v_input" :style="realStyle">
     <div
-      class="v_comp_body"
+      class="v_input_body"
       :class="{
-        has_label: label || $slots.default,
         focus,
         err,
         disabled,
@@ -11,16 +10,14 @@
       }"
       @click.stop=""
     >
-      <div class="prefix" :class="{ has_prefix: $scopedSlots.prefix }">
+      <div class="prefix">
         <slot name="prefix"> </slot>
       </div>
-      <div v-if="label" class="label_column">{{ label }}</div>
       <div class="input_wrapper">
         <input
           ref="input"
           class="input"
           :class="{
-            has_prefix_icon: prefixIcon,
             left: left,
             center: center,
             right: right,
@@ -29,7 +26,6 @@
           :value="realValue"
           v-bind="$attrs"
           :autofocus="autofocus"
-          :style="textIndexStyle"
           :readonly="readonly"
           :disabled="disabled"
           :maxlength="maxlength"
@@ -41,12 +37,12 @@
       </div>
       <div
         v-if="!disabled && !readonly && value !== '' && clearable"
-        class="clearable icon icon-common-close"
+        class="clearable"
         @click.stop="clearValue"
       >
         <IconClear />
       </div>
-      <div v-if="$slots.suffix" ref="unit" class="suffix_column">
+      <div ref="unit" class="suffix_column">
         <slot name="suffix"></slot>
       </div>
     </div>
@@ -107,10 +103,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    label: {
-      type: String,
-      default: "",
-    },
     err: {
       type: [Boolean, String],
       default: false,
@@ -148,9 +140,6 @@ export default {
     return {
       focus: false,
       realValue: "",
-      textIndexStyle: {
-        textIndent: "0px",
-      },
       optionVisible: false,
       reg: null,
       reg2: null,
@@ -270,20 +259,6 @@ export default {
           this.realValue = value.match(this.reg2)[0];
           this.$emit("change", this.realValue);
         }
-      }
-      if (this.center) {
-        let textIndentWidth = 0;
-        if (this.$slots.default) {
-          textIndentWidth += Number(
-            window.getComputedStyle(this.$refs.unit).width.slice(0, -2)
-          );
-        }
-        if (value && this.clearable) {
-          textIndentWidth += 24;
-        }
-        this.textIndexStyle = {
-          textIndent: textIndentWidth + "px",
-        };
       }
     },
 
@@ -426,7 +401,7 @@ export default {
 .v_input {
   height: 36px;
   position: relative;
-  .v_comp_body {
+  .v_input_body {
     height: 100%;
     display: flex;
     align-items: center;
@@ -436,7 +411,7 @@ export default {
     background-color: white;
     overflow: hidden;
     &.disabled {
-      background-color: rgb(236, 236, 236);
+      background-color: rgb(245, 245, 245);
     }
 
     &.err {
@@ -450,9 +425,6 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      &.has_prefix {
-        padding-left: 10px;
-      }
     }
     .prefix_icon {
       padding-left: 10px;
@@ -468,6 +440,7 @@ export default {
       }
     }
     .input_wrapper {
+      flex-shrink: 0;
       width: 100px;
       height: 100%;
       flex-grow: 1;
@@ -513,14 +486,13 @@ export default {
       }
     }
 
-    .label_column {
-      padding-left: 12px;
-      flex-shrink: 0;
-    }
     .clearable {
       padding-right: 10px;
       cursor: pointer;
       transition: color 0.2s linear;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       svg {
         width: 20px;
         height: 20px;
@@ -536,9 +508,6 @@ export default {
       display: flex;
       flex-shrink: 0;
       align-items: center;
-      // border-left: 1px solid $border-color;
-      padding: 0 8px 0 0px;
-      color: #c4c4c4;
     }
   }
 

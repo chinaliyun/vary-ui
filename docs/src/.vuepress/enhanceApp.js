@@ -1,5 +1,5 @@
 import "./styles/cover.css";
-import VaryUI from "vary-ui";
+import VaryUI from "../../../src/index";
 export default ({
   Vue, // the version of Vue being used in the VuePress app
   // options, // the options for the root Vue instance

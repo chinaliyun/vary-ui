@@ -18,7 +18,5 @@
     "sass-loader": "^8.0.2",
     "vuepress": "^1.9.7"
   },
-  "dependencies": {
-    "vary-ui": "^1.0.15"
-  }
+  "dependencies": {}
 }
