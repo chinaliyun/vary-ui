@@ -2,7 +2,7 @@
 pageClass: custom-page-class
 ---
 
-# Field 表单域
+# Field 表单控件
 
 ## 基础用法
 
@@ -27,9 +27,19 @@ pageClass: custom-page-class
 
 `label-width`属性可以设置`label`部分的宽度, 支持所有的 CSS 常见尺寸单位, 默认情况下, `label`内的文字是靠左对齐的, `center,right`可以设置`label`居中或者靠右对齐
 
+<br/>
+
 <Field-Size/>
 
 <<< ./src/.vuepress/components/Field/Size.vue
+
+水平排列的情况下, `label` 与实际控件在水平方向上是居中对齐的, 但是在某些情境下, 需要`label`与控件顶部对齐, 为此, 组件也提供了`top`属性来实现这个功能(`vertical` 模式下,该属性是无效的)
+
+<br/>
+
+<Field-Top/>
+
+<<< ./src/.vuepress/components/Field/Top.vue
 
 ## props
 

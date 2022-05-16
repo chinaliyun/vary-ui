@@ -1,5 +1,5 @@
 <template>
-  <div class="v_field" :class="{ vertical }">
+  <div class="v_field" :class="{ vertical, top }">
     <div
       v-if="label"
       class="v_field_label"
@@ -46,6 +46,7 @@ export default {
     left: Boolean,
     right: Boolean,
     center: Boolean,
+    top: Boolean,
     err: String,
     msg: String,
   },
@@ -88,6 +89,9 @@ export default {
   align-items: center;
   &.vertical {
     display: block;
+  }
+  &.top {
+    align-items: flex-start;
   }
   .v_field_label {
     flex-shrink: 0;
