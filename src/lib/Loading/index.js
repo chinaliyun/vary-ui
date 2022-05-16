@@ -6,6 +6,7 @@ let globalComponentInstance = null;
 function createGlobalInstance(options, parentNode) {
   const component = Vue.extend(Loading);
   globalComponentInstance = new component();
+  globalComponentInstance.init(options);
   const ele = globalComponentInstance.$mount().$el;
 
   globalComponentInstance.close = function () {
@@ -21,6 +22,7 @@ function createGlobalInstance(options, parentNode) {
 function createSingleInstance(options, parentNode) {
   const component = Vue.extend(Loading);
   let singleComponentInstance = new component();
+  singleComponentInstance.init(options);
   const ele = singleComponentInstance.$mount().$el;
 
   let parentNodePositionValue = "";
@@ -53,14 +55,20 @@ const instance = {
   install(Vue) {
     Vue.prototype.$loading = createInstance;
     Vue.directive("loading", {
-      update: (el, binding) => {
+      bind: (el, binding, vnode) => {
+        console.log(el, binding, vnode);
+      },
+      update: (el, binding, vnode) => {
         if (!binding.value && el.$loading) {
           el.$loading.close();
           el.$loading = null;
           return;
         }
         if (binding.value && !el.$loading) {
-          el.$loading = createInstance({}, el);
+          el.$loading = createInstance(
+            { text: vnode.data.attrs["loading-text"] },
+            el
+          );
         }
       },
     });

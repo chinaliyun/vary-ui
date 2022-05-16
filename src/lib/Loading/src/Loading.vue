@@ -4,7 +4,7 @@
       <svg viewBox="25 25 50 50" class="circular">
         <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
       </svg>
-      <div v-if="options.text">{{ options.text }}</div>
+      <div v-if="options.text" class="v_loading_text">{{ options.text }}</div>
     </div>
   </div>
 </template>
@@ -14,7 +14,6 @@ export default {
   data() {
     return {
       options: {
-        type: "globol", // global=全局调用， directive=指令调用
         text: "",
       },
     };
@@ -38,7 +37,6 @@ export default {
 .v_loading {
   display: flex;
   align-items: center;
-  // background-color: rgba(58, 58, 58, 0.692);
   justify-content: center;
   color: white;
   position: fixed;
@@ -47,46 +45,40 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 2;
-  &.global {
-    position: fixed;
+  .circular {
+    height: 50px;
+    width: 50px;
+    animation: loading-rotate 2s linear infinite;
+    .path {
+      animation: loading-dash 1.5s ease-in-out infinite;
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: 0;
+      stroke-width: 2;
+      stroke: $loading-border-color;
+      stroke-linecap: round;
+    }
   }
-  &.directive {
-    position: absolute;
+  .v_loading_text {
+    color: $loading-color;
   }
-  .loading_text {
-    padding-top: 12px;
+  @keyframes loading-rotate {
+    100% {
+      transform: rotate(1turn);
+    }
   }
-}
-.circular {
-  height: 50px;
-  width: 50px;
-  animation: loading-rotate 2s linear infinite;
-  .path {
-    animation: loading-dash 1.5s ease-in-out infinite;
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: 0;
-    stroke-width: 2;
-    stroke: #ff6a00;
-    stroke-linecap: round;
-  }
-}
-@keyframes loading-rotate {
-  100% {
-    transform: rotate(1turn);
-  }
-}
-@keyframes loading-dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -40px;
-  }
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -120px;
+  @keyframes loading-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -40px;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -120px;
+    }
   }
 }
 </style>

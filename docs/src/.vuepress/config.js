@@ -27,12 +27,12 @@ module.exports = {
       "/components/": [
         {
           title: "安装及环境",
-          collapsable: false,
+          collapsable: true,
           children: ["install", "variable"],
         },
         {
           title: "布局",
-          collapsable: false,
+          collapsable: true,
           children: [
             "scene",
             // "space"
@@ -40,19 +40,24 @@ module.exports = {
         },
         {
           title: "表单",
-          collapsable: false,
+          collapsable: true,
           children: ["field", "input", "checkbox"],
         },
         {
           title: "组件库",
-          collapsable: false,
-          children: ["avatar", "dialog", "button", "link", "card", "preview"],
+          collapsable: true,
+          children: ["avatar", "button", "link", "card", "preview"],
+        },
+        {
+          title: "弹出窗",
+          collapsable: true,
+          children: ["dialog", "loading"],
         },
       ],
       "/options/": [
         {
           title: "选项",
-          collapsable: false,
+          collapsable: true,
           children: [""],
         },
       ],

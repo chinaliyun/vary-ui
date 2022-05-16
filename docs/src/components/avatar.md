@@ -6,6 +6,8 @@ pageClass: custom-page-class
 
 ## 基础用法
 
+<br/>
+
 <Avatar-Base/>
 
 <<< ./src/.vuepress/components/Avatar/Base.vue
@@ -13,6 +15,8 @@ pageClass: custom-page-class
 ## 自定义尺寸
 
 默认的头像尺寸是 80px, 可以通过 `size`属性自定义尺寸
+
+<br/>
 
 <Avatar-Size/>
 

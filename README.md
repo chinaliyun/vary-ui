@@ -4,7 +4,7 @@ Vary UI 是基于 Vue2 实现的一套 UI 组件库
 
 ## 使用文档
 
-[document](https://doc.varyui.com)
+[document](https://varyui.com)
 
 ## 全局安装及使用
 
