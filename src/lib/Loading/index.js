@@ -55,9 +55,6 @@ const instance = {
   install(Vue) {
     Vue.prototype.$loading = createInstance;
     Vue.directive("loading", {
-      bind: (el, binding, vnode) => {
-        console.log(el, binding, vnode);
-      },
       update: (el, binding, vnode) => {
         if (!binding.value && el.$loading) {
           el.$loading.close();
