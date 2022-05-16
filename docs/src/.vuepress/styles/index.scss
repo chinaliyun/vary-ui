@@ -17,9 +17,38 @@ $tips-color: #909399; // 信息
 $input-error-color: #ff2200; // 输入框错误状态下的边框色
 $link-color: #ff6a00;
 
-$alert-color:$font-color; // 弹窗文字颜色
+$alert-title-color:$font-color;// 弹窗标题文字颜色
+$alert-content-color: $font-color2;// 弹窗内容文字颜色
 $alert-border-color: $border-color; // 弹窗边框色
-$alert-confirm-background-color: $main-color; // 弹窗背景色
+$alert-cover-color: rgba(58, 58, 58, 0.692); // 弹窗遮罩层颜色
+$alert-background-color: white; // 弹窗内容背景色
+$alert-confirm-color:white;// 确认按钮文字颜色
+$alert-confirm-background-color:$primary-color;// 确认按钮背景色
+$alert-cancel-color:$font-color;// 取消按钮文字颜色
+$alert-cancel-background-color:white;// 取消按钮背景色
+$alert-close-color:$font-color; // 关闭按钮默认颜色
+$alert-close-hover-color:$main-color;// 关闭按钮hover效果颜色
+
+
+$message-color:$main-color;
+$message-success-color:#67c23a;
+$message-success-background-color:#edf8e8;
+$message-error-color:#ff1f00;
+$message-error-background-color:#feeeee; 
+$message-warning-color:#e29835;
+$message-warning-background-color:#fdf5e9;
+$message-tips-color:#b7b7b7;
+$message-tips-background-color:#f2f2f3;
+
+$notiy-background-color: white;
+$notify-title-color:$font-color;
+$notify-content-color:$font-color2;
+$notify-confirm-color:white;// 确认按钮文字颜色
+$notify-confirm-background-color:$primary-color;// 确认按钮背景色
+$notify-close-color:$font-color; // 关闭按钮默认颜色
+$notify-close-hover-color:$main-color;// 关闭按钮hover效果颜色
+
+
 
 $button-color:$font-color2; // 按钮默认文字颜色
 $button-background-color: $border-color2;// 按钮默认背景颜色

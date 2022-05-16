@@ -100,7 +100,7 @@ export default {
     align-items: center;
     padding: 20px;
     border-radius: 4px;
-    background-color: white;
+    background-color: $notiy-background-color;
     box-shadow: 0 0 4px rgb(228, 228, 228);
     display: flex;
     align-items: flex-start;
@@ -115,14 +115,14 @@ export default {
     }
     .notify_title {
       font-size: 18px;
-      color: #303133;
+      color: $notify-title-color;
       margin-right: 12px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .notify_content {
-      color: #999;
+      color: $notify-content-color;
       text-align: justify;
       font-size: 14px;
       word-break: break-all;
@@ -152,10 +152,10 @@ export default {
         transition: background 0.1s linear;
         outline: none;
         font-size: 14px;
-        background-color: $main-color;
-        color: white;
+        background-color: $notify-confirm-background-color;
+        color: $notify-confirm-color;
         &:hover {
-          background-color: lighten($main-color, 12%);
+          background-color: lighten($notify-confirm-background-color, 12%);
         }
       }
     }
@@ -165,12 +165,12 @@ export default {
       width: 24px;
       height: 24px;
       font-weight: lighter;
-      color: #999;
+      color: $notify-close-color;
       cursor: pointer;
-      fill: #999999;
+      fill: $notify-close-color;
       transition: all 0.2s linear;
       &:hover {
-        fill: red;
+        fill: $notify-close-hover-color;
       }
     }
     &.message_open {

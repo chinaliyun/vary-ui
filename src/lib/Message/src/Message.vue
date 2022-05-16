@@ -104,29 +104,29 @@ export default {
       }
     }
     &.success {
-      background-color: #edf8e8;
-      color: #67c23a;
+      background-color: $message-success-background-color;
+      color: $message-success-color;
       .icon {
         background-image: url("./images/success.svg");
       }
     }
     &.warning {
-      background-color: #fdf5e9;
-      color: #e29835;
+      background-color: $message-warning-background-color;
+      color: $message-warning-color;
       .icon {
         background-image: url("./images/warning.svg");
       }
     }
     &.error {
-      background-color: #feeeee;
-      color: #ff1f00;
+      background-color: $message-error-background-color;
+      color: $message-error-color;
       .icon {
         background-image: url("./images/error.svg");
       }
     }
     &.tips {
-      background-color: #f2f2f3;
-      color: #b7b7b7;
+      background-color: $message-tips-background-color;
+      color: $message-tips-color;
       .icon {
         background-image: url("./images/tips.svg");
       }

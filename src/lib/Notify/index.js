@@ -45,7 +45,7 @@ const createComponent = function (type, options) {
 
   document.body.appendChild(el);
   const elHeight = el.getBoundingClientRect().height + 20;
-  console.log("create", el, el.getBoundingClientRect());
+  // console.log("create", el, el.getBoundingClientRect());
   if (top + elHeight > window.innerHeight) {
     // 如果新增的弹窗,位置在可视区域之外, 照样把他放进队列中 但是要先移除该弹窗
     nextInstance.push({
@@ -60,7 +60,7 @@ const createComponent = function (type, options) {
   instance.show();
 
   realOptions.remove = function () {
-    console.log("remove", elHeight);
+    // console.log("remove", elHeight);
     document.body.removeChild(el);
     const currentIndex = instanceMap.findIndex(
       (item) => item._uid === instance._uid
@@ -80,7 +80,7 @@ function instance(options) {
 }
 
 const resetStyle = function (elHeight, currentIndex) {
-  console.log("resetStyle", elHeight, currentIndex);
+  // console.log("resetStyle", elHeight, currentIndex);
   if (instanceMap.length > 0) {
     instanceMap.forEach((item, itemIndex) => {
       if (itemIndex >= currentIndex) {

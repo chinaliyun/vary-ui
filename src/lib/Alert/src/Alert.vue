@@ -95,7 +95,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(58, 58, 58, 0.692);
+  background-color: $alert-cover-color;
   &.message_open {
     animation: rootShow 0.1s linear;
   }
@@ -125,7 +125,7 @@ export default {
     // align-items: center;
     padding: 20px;
     border-radius: 4px;
-    background-color: white;
+    background-color: $alert-background-color;
     .v_alert_header {
       display: flex;
       align-items: flex-start;
@@ -144,11 +144,12 @@ export default {
       }
       .alert_title {
         font-size: 18px;
-        color: #303133;
+        color: $alert-title-color;
         margin-right: 12px;
       }
       .alert_content {
-        color: #999;
+        padding: 10px 0;
+        color: $alert-content-color;
         text-align: justify;
       }
     }
@@ -169,7 +170,7 @@ export default {
         outline: none;
         font-size: 14px;
         background-color: $alert-confirm-background-color;
-        color: white;
+        color: $alert-confirm-color;
         &:hover {
           background-color: darken($alert-confirm-background-color, 12%);
         }
@@ -180,11 +181,14 @@ export default {
         border-radius: 4px;
         cursor: pointer;
         margin-left: 10px;
-        background-color: white;
+        background-color: $alert-cancel-background-color;
         border-color: $alert-border-color;
-        color: $alert-color;
+        color: $alert-cancel-color;
         border-width: 1px;
         border-style: solid;
+        &:hover {
+          background-color: darken($alert-cancel-background-color, 3%);
+        }
       }
     }
     .close_icon {
@@ -193,12 +197,12 @@ export default {
       width: 24px;
       height: 24px;
       font-weight: lighter;
-      color: #999;
+      color: $alert-close-color;
       cursor: pointer;
-      fill: #999999;
+      fill: $alert-close-color;
       transition: all 0.1s linear;
       &:hover {
-        fill: red;
+        fill: $alert-close-hover-color;
       }
     }
     &.message_open {
