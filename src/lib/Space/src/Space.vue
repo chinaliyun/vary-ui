@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Mixin from "../../Mixin";
+import Mixin from "../../../mixin";
 export default {
   name: "VarSpace",
   mixins: [Mixin],

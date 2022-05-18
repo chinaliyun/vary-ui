@@ -149,7 +149,7 @@ function zero(v) {
   return v < 10 ? "0" + v : v;
 }
 export default {
-  name: "VarDatetimePicker",
+  name: "VarDatetimer",
   components: {
     IconYear,
     IconMonth,

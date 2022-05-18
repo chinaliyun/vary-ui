@@ -17,6 +17,7 @@ $tips-color: #909399; // 信息
 $input-error-color: #ff2200; // 输入框错误状态下的边框色
 $link-color: #ff6a00;
 
+
 $alert-title-color:$font-color;// 弹窗标题文字颜色
 $alert-content-color: $font-color2;// 弹窗内容文字颜色
 $alert-border-color: $border-color; // 弹窗边框色
@@ -94,7 +95,15 @@ $loading-border-color: $primary-color;// loading组件圆环色
 $picker-border-color: $border-color; // picker组件边框色
 $picker-background-color: $border-color; // picker组件背景色
 
-$dialog-color:$main-color;
+$dialog-color:$main-color; // 弹窗内的标题文字颜色
 $dialog-border-color:$border-color; // 弹窗的边框色
 $dialog-confirm-button-color:$primary-color; // 弹窗确认按钮的背景色
 
+
+$table-head-color:$font-color; // 表格中的th部分文字颜色
+$table-head-background-color:#fbfbfb;// th部分的背景颜色
+$table-even-background-color: white; // 双数行的背景颜色
+$table-cell-color:$font-color2;// 单元格内的默认文字颜色
+$table-border-color: $border-color2;// 表格的边框色
+$table-row-hover-background-color:rgba(246, 230, 230, 0.257);// 行hover状态下的背景颜色
+$table-row-min-height:40px;

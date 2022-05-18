@@ -18,15 +18,14 @@
 </template>
 
 <script>
-import { isBoolean } from "../../../utils";
 export default {
   name: "VarRadio",
   model: {
-    prop: "name",
+    prop: "value",
     event: "change",
   },
   props: {
-    name: {
+    value: {
       type: [String, Number],
       default: "",
     },
@@ -38,7 +37,7 @@ export default {
       type: Boolean,
       default: false,
     },
-    value: {
+    label: {
       type: String,
       default: "",
     },
@@ -50,7 +49,7 @@ export default {
     };
   },
   watch: {
-    name(v) {
+    value() {
       this.init();
     },
   },
@@ -59,9 +58,10 @@ export default {
   },
   methods: {
     init() {
-      if (isBoolean(this.name)) {
-        this.realValue = this.name;
-      } else if (this.value && this.name === this.value) {
+      if (!this.label.trim()) {
+        throw new Error("prop label must had a value");
+      }
+      if (this.value + "" === this.label + "") {
         this.realValue = true;
       } else {
         this.realValue = false;
@@ -70,11 +70,7 @@ export default {
     changeCheckboxStatus() {
       if (!this.disabled && !this.readonly) {
         this.realValue = true;
-        if (isBoolean(this.value)) {
-          this.$emit("change", true);
-        } else {
-          this.$emit("change", this.value || "");
-        }
+        this.$emit("change", this.label);
       }
     },
   },

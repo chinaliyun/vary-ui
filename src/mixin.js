@@ -14,13 +14,13 @@ export default {
       if (/^\d+(\.\d+)?(px|rem|em|vh|vw|%)?$/.test(width)) {
         style.width = width;
         if (/^\d+$/.test(width)) {
-          style.width = width + 'px';
+          style.width = width + "px";
         }
       }
       if (/^\d+(\.\d+)?(px|rem|em|vh|vw|%)?$/.test(height)) {
         style.height = height;
         if (/^\d+$/.test(height)) {
-          style.height = height + 'px';
+          style.height = height + "px";
         }
       }
 

@@ -33,15 +33,17 @@ module.exports = {
         {
           title: "布局",
           collapsable: false,
-          children: [
-            "scene",
-            // "space"
-          ],
+          children: ["scene", "space"],
+        },
+        {
+          title: "表格",
+          collapsable: false,
+          children: ["table"],
         },
         {
           title: "表单",
           collapsable: false,
-          children: ["field", "input", "checkbox"],
+          children: ["field", "input", "checkbox", "radio"],
         },
         {
           title: "组件库",

@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import Mixin from "../../Mixin";
+import Mixin from "../../../mixin";
 export default {
   name: "VarScene",
   mixins: [Mixin],
