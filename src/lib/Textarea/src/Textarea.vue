@@ -1,17 +1,18 @@
 <template>
-  <div class="v_textarea" :class="{ focus: focus }">
+  <div
+    class="v_textarea"
+    :class="{ focus: focus }"
+    :style="{ width: bounding.width }"
+  >
     <div v-if="$slots.prefix" class="prefix">
       <slot name="prefix"></slot>
     </div>
     <textarea
       ref="input"
       class="input"
+      v-bind="$attrs"
       :value="realValue"
-      :style="rootStyle"
-      :maxlength="maxlength"
-      :class="{ has_msg: msg }"
-      :placeholder="placeholder"
-      :disabled="disabled"
+      :style="{ height: bounding.height }"
       @input="inputChange"
       @focus="inputFocus"
       @blur="inputBlur"
@@ -26,8 +27,10 @@
 </template>
 
 <script>
+import Mixin from "../../../mixin";
 export default {
   name: "VarTextarea",
+  mixins: [Mixin],
   model: {
     prop: "value",
     event: "change",
@@ -45,36 +48,12 @@ export default {
       type: String,
       default: "",
     },
-    msg: {
-      type: String,
-      default: "",
-    },
-    placeholder: {
-      type: String,
-      default: "",
-    },
-    maxlength: {
-      type: String,
-      default: "",
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
   },
   data() {
     return {
       realValue: "",
       focus: false,
     };
-  },
-  computed: {
-    rootStyle() {
-      const height = this.height || this.h;
-      return {
-        height: /^\d+$/.test(height) ? height + "px" : 0 + "px",
-      };
-    },
   },
   watch: {
     value(v) {

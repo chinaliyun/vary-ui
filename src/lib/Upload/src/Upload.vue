@@ -103,11 +103,18 @@ export default {
         await Promise.all(files.map((item) => upload(item)));
       },
     },
+    beforeUpload: {
+      type: Function,
+      async default() {
+        return true;
+      },
+    },
   },
   data() {
     return {
       selectedFiles: [],
       acceptStr: "",
+      isTrusted: true,
     };
   },
   mounted() {
@@ -137,18 +144,14 @@ export default {
     openSelectDialog() {
       // 有文件上传的时候, 禁止选择文件
       if (!this.uploading) {
-        this.$emit("beforeSelectFile", {
-          isTrusted: true,
-        });
+        this.isTrusted = true;
         this.$refs.input.click();
       }
     },
 
     trigger() {
       if (!this.uploading) {
-        this.$emit("beforeSelectFile", {
-          isTrusted: false,
-        });
+        this.isTrusted = fase;
         this.$refs.input.click();
       }
     },
@@ -203,17 +206,9 @@ export default {
         return file;
       });
 
-      this.upload(this.selectedFiles);
-    },
-    deleteFile(item) {
-      // 删除文件
-      this.selectedFiles = this.selectedFiles.filter(
-        (row) => row.fileName !== item.fileName
-      );
-      this.$emit(
-        "change",
-        this.selectedFiles.filter((item) => !item.error)
-      );
+      this.upload(this.selectedFiles, {
+        isTrusted: this.isTrusted,
+      });
     },
   },
 };

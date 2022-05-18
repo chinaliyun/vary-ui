@@ -43,7 +43,14 @@ module.exports = {
         {
           title: "表单",
           collapsable: false,
-          children: ["field", "input", "checkbox", "radio"],
+          children: [
+            "field",
+            "input",
+            "checkbox",
+            "radio",
+            "textarea",
+            "upload",
+          ],
         },
         {
           title: "组件库",
